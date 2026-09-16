@@ -1,0 +1,185 @@
+'use client';
+
+import React, { useState, useRef } from 'react';
+import { useEnquiryModal } from '@/components/modals/ModalProvider';
+import { ALLOWED_INTERESTS } from '@/lib/data';
+import { validateField, validateAllFields, FormErrors, FormFields } from '@/lib/validation';
+
+interface EnquiryFormProps {
+  idPrefix: 'inline' | 'modal';
+  isModal?: boolean;
+}
+
+export function EnquiryForm({ idPrefix, isModal = false }: EnquiryFormProps) {
+  const { sharedFormValues, setSharedFormValues } = useEnquiryModal();
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [statusMessage, setStatusMessage] = useState<string>('');
+
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const interestSelectRef = useRef<HTMLSelectElement>(null);
+  const messageTextareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const fieldRefs: Record<string, React.RefObject<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null>> = {
+    name: nameInputRef,
+    email: emailInputRef,
+    interest: interestSelectRef,
+    message: messageTextareaRef,
+  };
+
+  const handleChange = (field: keyof FormFields, value: string) => {
+    setStatusMessage('');
+    setSharedFormValues((prev) => ({ ...prev, [field]: value }));
+
+    if (errors[field as keyof FormErrors]) {
+      const fieldError = validateField(field, value);
+      setErrors((prev) => ({ ...prev, [field]: fieldError }));
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Check honeypot
+    if (sharedFormValues.website) {
+      return;
+    }
+
+    const { isValid, errors: validationErrors, firstInvalidField } = validateAllFields(sharedFormValues);
+
+    if (!isValid) {
+      setErrors(validationErrors);
+      setStatusMessage('');
+      if (firstInvalidField && fieldRefs[firstInvalidField]?.current) {
+        fieldRefs[firstInvalidField].current?.focus({ preventScroll: false });
+      }
+      return;
+    }
+
+    setErrors({});
+    setStatusMessage('Demo validation complete. No information was sent or saved.');
+  };
+
+  return (
+    <form className={`form ${isModal ? 'modal-form' : ''}`} onSubmit={handleSubmit} noValidate>
+      <p>
+        <strong>Enquiry form preview.</strong> This is a UI demo. No information is sent or saved.
+      </p>
+
+      <div className="fields">
+        <div className="field">
+          <label htmlFor={`${idPrefix}-name`}>Your name *</label>
+          <input
+            ref={nameInputRef}
+            id={`${idPrefix}-name`}
+            name="name"
+            autoComplete="name"
+            required
+            maxLength={80}
+            value={sharedFormValues.name}
+            onChange={(e) => handleChange('name', e.target.value)}
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? `${idPrefix}-name-error` : undefined}
+          />
+          {errors.name && (
+            <span id={`${idPrefix}-name-error`} className="error" role="alert">
+              {errors.name}
+            </span>
+          )}
+        </div>
+
+        <div className="field">
+          <label htmlFor={`${idPrefix}-email`}>Email address *</label>
+          <input
+            ref={emailInputRef}
+            id={`${idPrefix}-email`}
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            maxLength={254}
+            value={sharedFormValues.email}
+            onChange={(e) => handleChange('email', e.target.value)}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? `${idPrefix}-email-error` : undefined}
+          />
+          {errors.email && (
+            <span id={`${idPrefix}-email-error`} className="error" role="alert">
+              {errors.email}
+            </span>
+          )}
+        </div>
+
+        <div className="field full">
+          <label htmlFor={`${idPrefix}-interest`}>I’m interested in *</label>
+          <select
+            ref={interestSelectRef}
+            id={`${idPrefix}-interest`}
+            name="interest"
+            required
+            value={sharedFormValues.interest}
+            onChange={(e) => handleChange('interest', e.target.value)}
+            aria-invalid={Boolean(errors.interest)}
+            aria-describedby={errors.interest ? `${idPrefix}-interest-error` : undefined}
+          >
+            <option value="">Choose an area</option>
+            {ALLOWED_INTERESTS.map((interest) => (
+              <option key={interest} value={interest}>
+                {interest}
+              </option>
+            ))}
+          </select>
+          {errors.interest && (
+            <span id={`${idPrefix}-interest-error`} className="error" role="alert">
+              {errors.interest}
+            </span>
+          )}
+        </div>
+
+        <div className="field full">
+          <label htmlFor={`${idPrefix}-message`}>What would you like to achieve? *</label>
+          <textarea
+            ref={messageTextareaRef}
+            id={`${idPrefix}-message`}
+            name="message"
+            required
+            minLength={10}
+            maxLength={1500}
+            placeholder="A little about your goals…"
+            value={sharedFormValues.message}
+            onChange={(e) => handleChange('message', e.target.value)}
+            aria-invalid={Boolean(errors.message)}
+            aria-describedby={errors.message ? `${idPrefix}-message-error` : undefined}
+          />
+          {errors.message && (
+            <span id={`${idPrefix}-message-error`} className="error" role="alert">
+              {errors.message}
+            </span>
+          )}
+        </div>
+      </div>
+
+      <div className="hp" aria-hidden="true">
+        <label htmlFor={`${idPrefix}-website`}>Leave empty</label>
+        <input
+          id={`${idPrefix}-website`}
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={sharedFormValues.website || ''}
+          onChange={(e) => handleChange('website', e.target.value)}
+        />
+      </div>
+
+      <button className="button" type="submit">
+        Preview service enquiry <span>↗</span>
+      </button>
+
+      {statusMessage && (
+        <div className="status" role="status">
+          {statusMessage}
+        </div>
+      )}
+    </form>
+  );
+}

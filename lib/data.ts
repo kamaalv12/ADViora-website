@@ -1,0 +1,244 @@
+export interface ServiceDetail {
+  slug: string;
+  route: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  coverImage: string;
+  coverAlt: string;
+  caption: string;
+  eyebrow: string;
+  bulletPoints: string[];
+  ctaText: string;
+  servicePrefill: string;
+  note?: string;
+  relatedSlugs: string[];
+}
+
+export interface DivisionInfo {
+  id: string;
+  number: string;
+  title: string;
+  label: string;
+  emblem: string;
+  photo: string;
+  photoAlt: string;
+  photoLabel: string;
+  description: string;
+  tags: string[];
+  route: string;
+  ctaText: string;
+}
+
+export const DIVISIONS: DivisionInfo[] = [
+  {
+    id: 'digital',
+    number: '01 /',
+    title: 'ADViora Digital',
+    label: 'Business & technology',
+    emblem: '▦',
+    photo: '/images/technology.webp',
+    photoAlt: 'Laptop displaying code in a workspace',
+    photoLabel: 'Strategy meets technology',
+    description: 'Align people, processes and technology to help your organization navigate change and build lasting capability.',
+    tags: ['ITSM', 'Artificial intelligence', 'Digital transformation', 'Business transformation', 'Training'],
+    route: '/digital',
+    ctaText: 'Visit ADViora Digital',
+  },
+  {
+    id: 'academy',
+    number: '02 /',
+    title: 'ADViora Academy',
+    label: 'People & performance',
+    emblem: '◎',
+    photo: '/images/training.webp',
+    photoAlt: 'Participants taking notes at a professional workshop',
+    photoLabel: 'Learning meets possibility',
+    description: 'Bring learning into action through sports, athlete development and professional training that puts people first.',
+    tags: ['Sports programmes', 'Athlete development', 'School partnerships', 'Professional training'],
+    route: '/academy',
+    ctaText: 'Visit ADViora Academy',
+  },
+];
+
+export const DIGITAL_CAPABILITIES = [
+  {
+    number: '01',
+    category: 'TRANSFORM',
+    title: 'Business transformation',
+    description: 'Connect your priorities, processes and operating model to a clear direction for change.',
+  },
+  {
+    number: '02',
+    category: 'SIMPLIFY',
+    title: 'IT service management',
+    description: 'Improve how IT services are designed, delivered and supported across your organization.',
+  },
+  {
+    number: '03',
+    category: 'ENABLE',
+    title: 'AI & digital solutions',
+    description: 'Identify practical opportunities for AI, automation and digital ways of working.',
+  },
+  {
+    number: '04',
+    category: 'DEVELOP',
+    title: 'Professional training',
+    description: 'Help teams apply new knowledge and build confidence through focused learning.',
+  },
+];
+
+export const PROCESS_STEPS = [
+  {
+    step: '01',
+    title: 'Understand',
+    description: 'Start with your goals, your context and the challenges that matter.',
+  },
+  {
+    step: '02',
+    title: 'Shape the approach',
+    description: 'Define the right direction, priorities and support for your journey.',
+  },
+  {
+    step: '03',
+    title: 'Put it into practice',
+    description: 'Bring the plan to life through consulting, technology or training.',
+  },
+  {
+    step: '04',
+    title: 'Keep progressing',
+    description: 'Review what’s working, refine the approach and build on your progress.',
+  },
+];
+
+export const BRAND_MEANINGS = [
+  {
+    word: 'Advance',
+    subtitle: 'Progress with purpose.',
+    description: 'Move from ambition to action.',
+  },
+  {
+    word: 'Vision',
+    subtitle: 'See the bigger picture.',
+    description: 'Let strategic thinking guide the next step.',
+  },
+  {
+    word: 'Aura',
+    subtitle: 'Make a meaningful impression.',
+    description: 'Build influence, presence and excellence.',
+  },
+];
+
+export const FAQ_ITEMS = [
+  {
+    question: 'What is the difference between Digital and Academy?',
+    answer: 'ADViora Digital focuses on business transformation, ITSM, AI and technology. ADViora Academy focuses on sports, athlete development and professional training. The right starting point depends on your goals.',
+  },
+  {
+    question: 'Can schools and organizations explore a partnership?',
+    answer: 'Yes. Choose school and community programmes in the enquiry form to explore your requirements. Programme scope, locations and schedules will need to be discussed with the ADViora team.',
+  },
+  {
+    question: 'How do I find sports programmes near me?',
+    answer: 'Enquire with your sport of interest and preferred location. Confirmed venues, coaching schedules and registration details will be added once available.',
+  },
+  {
+    question: 'What does the name ADViora mean?',
+    answer: 'ADViora is a coined brand name inspired conceptually by Advance, Vision and Aura: progress, strategic thinking, and influence, presence and excellence. It is a brand meaning, not an acronym.',
+  },
+];
+
+export const SERVICES_DATA: Record<string, ServiceDetail> = {
+  'business-transformation': {
+    slug: 'business-transformation',
+    route: '/business-transformation',
+    badge: 'ADViora Digital · 01',
+    title: 'Business transformation',
+    subtitle: 'ADViora Consulting',
+    description: 'Connect business priorities with the people, processes and ways of working needed to move forward. Begin with your current challenges and shape a practical direction for change.',
+    coverImage: '/images/consulting.webp',
+    coverAlt: 'Professionals collaborating around a table',
+    caption: 'Business transformation',
+    eyebrow: 'ADViora Consulting',
+    bulletPoints: [
+      'Business priorities and transformation planning',
+      'Process and operating-model improvement',
+      'Change readiness and organizational capability',
+    ],
+    ctaText: 'Discuss business transformation',
+    servicePrefill: 'Business transformation',
+    relatedSlugs: ['technology-digital', 'professional-training', 'sports-athlete-development'],
+  },
+  'technology-digital': {
+    slug: 'technology-digital',
+    route: '/technology-digital',
+    badge: 'ADViora Digital · 02',
+    title: 'Technology & digital transformation',
+    subtitle: 'ADViora Consulting',
+    description: 'Make technology serve your organization’s goals. Explore IT service management, practical AI opportunities and digital transformation in the context of your business.',
+    coverImage: '/images/technology.webp',
+    coverAlt: 'Laptop showing software code in a workspace',
+    caption: 'Technology & digital',
+    eyebrow: 'ADViora Consulting',
+    bulletPoints: [
+      'ITSM: service design, delivery and improvement',
+      'AI and automation opportunity assessment',
+      'Digital ways of working and technology adoption',
+    ],
+    ctaText: 'Discuss technology requirements',
+    servicePrefill: 'ITSM / AI / digital transformation',
+    relatedSlugs: ['business-transformation', 'professional-training', 'sports-athlete-development'],
+  },
+  'professional-training': {
+    slug: 'professional-training',
+    route: '/professional-training',
+    badge: 'ADViora Digital & Academy · 03',
+    title: 'Professional training & development',
+    subtitle: 'ADViora Consulting',
+    description: 'Help individuals and teams develop useful skills and apply them with confidence. Discuss learning needs across business, technology and professional practice.',
+    coverImage: '/images/training.webp',
+    coverAlt: 'Attendees taking notes at a professional workshop',
+    caption: 'Professional development',
+    eyebrow: 'ADViora Consulting',
+    bulletPoints: [
+      'Learning needs and programme planning',
+      'Professional and technology-focused training',
+      'Practical application and capability development',
+    ],
+    ctaText: 'Discuss a training programme',
+    servicePrefill: 'Professional training',
+    relatedSlugs: ['business-transformation', 'technology-digital', 'sports-athlete-development'],
+  },
+  'sports-athlete-development': {
+    slug: 'sports-athlete-development',
+    route: '/sports-athlete-development',
+    badge: 'ADViora Academy · 04',
+    title: 'Sports & athlete development',
+    subtitle: 'ADViora Consulting',
+    description: 'Explore a structured approach to sporting participation and athlete development, with an emphasis on skills, confidence and progress.',
+    coverImage: '/images/sports.webp',
+    coverAlt: 'Basketball players on an indoor court',
+    caption: 'Sports & athlete development',
+    eyebrow: 'ADViora Consulting',
+    bulletPoints: [
+      'Sports coaching and athlete development pathways',
+      'School and community programme enquiries',
+      'Participation and competition opportunities',
+    ],
+    ctaText: 'Discuss sports development',
+    servicePrefill: 'Sports & athlete development',
+    note: 'Sports, locations, schedules and fees are subject to confirmation.',
+    relatedSlugs: ['business-transformation', 'technology-digital', 'professional-training'],
+  },
+};
+
+export const ALLOWED_INTERESTS = [
+  'Business transformation',
+  'ITSM / AI / digital transformation',
+  'Professional training',
+  'Sports & athlete development',
+  'School & community programmes',
+] as const;
+
+export type InterestArea = typeof ALLOWED_INTERESTS[number];

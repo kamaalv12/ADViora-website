@@ -33,6 +33,7 @@ yarn-error.log*
 .idea/
 .vscode/
 
-# TypeScript cache
+# TypeScript cache & scratch
 *.tsbuildinfo
 next-env.d.ts
+/scratch/
