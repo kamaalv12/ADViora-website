@@ -147,7 +147,7 @@ export function EnquiryForm({ idPrefix, isModal = false }: EnquiryFormProps) {
             autoComplete="tel"
             required
             maxLength={25}
-            placeholder="e.g. +91 99456 33771"
+            placeholder="e.g. +91 98765 43210"
             value={sharedFormValues.phone}
             onChange={(e) => handleChange('phone', e.target.value)}
             aria-invalid={Boolean(errors.phone)}

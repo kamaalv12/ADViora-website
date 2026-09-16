@@ -41,7 +41,7 @@ export function validateField(id: keyof FormFields, value: string): string {
       if (phoneDigits.length < 8) return 'Please enter a valid mobile number (minimum 8 digits).';
       if (phoneDigits.length > 15) return 'Mobile number cannot exceed 15 digits.';
       const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\./0-9]*$/;
-      if (!phoneRegex.test(trimmed)) return 'Enter a valid mobile number (e.g. +91 99456 33771).';
+      if (!phoneRegex.test(trimmed)) return 'Enter a valid mobile number (e.g. +91 98765 43210).';
       return '';
 
     case 'interest':
