@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useEnquiryModal } from './modals/ModalProvider';
+import { ADVIORA_CONTACT } from '@/lib/data';
 
 export function DirectContactButtons() {
   const { openChannelModal } = useEnquiryModal();
@@ -11,18 +12,18 @@ export function DirectContactButtons() {
       <button
         type="button"
         className="button whatsapp"
-        onClick={() => openChannelModal('whatsapp')}
+        onClick={(e) => openChannelModal('whatsapp', e.currentTarget)}
       >
         Chat on WhatsApp ↗
       </button>
       <button
         type="button"
         className="button email-button"
-        onClick={() => openChannelModal('email')}
+        onClick={(e) => openChannelModal('email', e.currentTarget)}
       >
         Email ADViora ↗
       </button>
-      <small>Contact links await ADViora’s number and email.</small>
+      <small>WhatsApp: {ADVIORA_CONTACT.whatsappDisplay} · Email: {ADVIORA_CONTACT.email}</small>
     </div>
   );
 }

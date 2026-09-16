@@ -10,8 +10,9 @@ export function FloatingWhatsApp() {
     <button
       type="button"
       className="floating-whatsapp"
-      onClick={() => openChannelModal('whatsapp')}
+      onClick={(e) => openChannelModal('whatsapp', e.currentTarget)}
       aria-label="Contact ADViora on WhatsApp"
+      aria-haspopup="dialog"
     >
       <span aria-hidden="true">◉</span> <span>WhatsApp</span>
     </button>

@@ -17,9 +17,8 @@ export function BookingPanel() {
 
   const handleEnquire = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setTriggerElement(e.currentTarget);
     const mappedInterest = SERVICE_MAPPING[selectedOption] || 'Business transformation';
-    openEnquiryModal(mappedInterest);
+    openEnquiryModal(mappedInterest, e.currentTarget);
   };
 
   return (

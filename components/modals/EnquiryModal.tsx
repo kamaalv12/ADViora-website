@@ -23,7 +23,17 @@ export function EnquiryModal() {
       } else if (closeButtonRef.current) {
         closeButtonRef.current.focus({ preventScroll: true });
       }
-    }, 50);
+    }, 30);
+
+    const getFocusable = (): HTMLElement[] => {
+      if (!modalCardRef.current) return [];
+      const focusableElements = modalCardRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      return Array.from(focusableElements).filter(
+        (el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true' && el.tabIndex !== -1
+      );
+    };
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -32,18 +42,25 @@ export function EnquiryModal() {
         return;
       }
 
-      if (e.key === 'Tab' && modalCardRef.current) {
-        const focusableElements = modalCardRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        const visibleFocusable = Array.from(focusableElements).filter(
-          (el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true' && el.tabIndex !== -1
-        );
-
-        if (visibleFocusable.length === 0) return;
+      if (e.key === 'Tab') {
+        const visibleFocusable = getFocusable();
+        if (visibleFocusable.length === 0) {
+          e.preventDefault();
+          return;
+        }
 
         const firstElement = visibleFocusable[0];
         const lastElement = visibleFocusable[visibleFocusable.length - 1];
+
+        if (!modalCardRef.current?.contains(document.activeElement)) {
+          e.preventDefault();
+          if (e.shiftKey) {
+            lastElement.focus();
+          } else {
+            firstElement.focus();
+          }
+          return;
+        }
 
         if (e.shiftKey) {
           if (document.activeElement === firstElement) {
@@ -59,16 +76,32 @@ export function EnquiryModal() {
       }
     };
 
+    const handleFocusIn = (e: FocusEvent) => {
+      if (!modalCardRef.current) return;
+      if (e.target && !modalCardRef.current.contains(e.target as Node)) {
+        const focusable = getFocusable();
+        if (focusable.length > 0) {
+          focusable[0].focus({ preventScroll: true });
+        }
+      }
+    };
+
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('focusin', handleFocusIn);
 
     return () => {
       clearTimeout(timer);
       document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('focusin', handleFocusIn);
 
       // Restore focus to trigger button
-      if (triggerElement) {
-        triggerElement.focus({ preventScroll: true });
+      if (triggerElement && triggerElement.isConnected) {
+        setTimeout(() => {
+          if (triggerElement.isConnected) {
+            triggerElement.focus({ preventScroll: true });
+          }
+        }, 10);
       }
     };
   }, [isEnquiryOpen, closeEnquiryModal, triggerElement]);

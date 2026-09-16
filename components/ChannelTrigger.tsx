@@ -24,7 +24,7 @@ export function ChannelTrigger({
       className={className}
       aria-label={label}
       aria-haspopup="dialog"
-      onClick={() => openChannelModal(channel)}
+      onClick={(e) => openChannelModal(channel, e.currentTarget)}
     >
       {children}
     </button>

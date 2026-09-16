@@ -22,8 +22,7 @@ export function EnquiryTrigger({
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setTriggerElement(e.currentTarget);
-    openEnquiryModal(service);
+    openEnquiryModal(service, e.currentTarget);
   };
 
   const baseClass =

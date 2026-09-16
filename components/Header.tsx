@@ -21,8 +21,7 @@ export function Header() {
 
   const handleCtaClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     closeMenu();
-    setTriggerElement(e.currentTarget);
-    openEnquiryModal();
+    openEnquiryModal(undefined, e.currentTarget);
   };
 
   useEffect(() => {
