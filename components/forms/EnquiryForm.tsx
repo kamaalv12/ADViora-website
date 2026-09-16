@@ -17,12 +17,14 @@ export function EnquiryForm({ idPrefix, isModal = false }: EnquiryFormProps) {
 
   const nameInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
+  const phoneInputRef = useRef<HTMLInputElement>(null);
   const interestSelectRef = useRef<HTMLSelectElement>(null);
   const messageTextareaRef = useRef<HTMLTextAreaElement>(null);
 
   const fieldRefs: Record<string, React.RefObject<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null>> = {
     name: nameInputRef,
     email: emailInputRef,
+    phone: phoneInputRef,
     interest: interestSelectRef,
     message: messageTextareaRef,
   };
@@ -135,7 +137,30 @@ export function EnquiryForm({ idPrefix, isModal = false }: EnquiryFormProps) {
           )}
         </div>
 
-        <div className="field full">
+        <div className="field">
+          <label htmlFor={`${idPrefix}-phone`}>Mobile number *</label>
+          <input
+            ref={phoneInputRef}
+            id={`${idPrefix}-phone`}
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            required
+            maxLength={25}
+            placeholder="e.g. +91 99456 33771"
+            value={sharedFormValues.phone}
+            onChange={(e) => handleChange('phone', e.target.value)}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? `${idPrefix}-phone-error` : undefined}
+          />
+          {errors.phone && (
+            <span id={`${idPrefix}-phone-error`} className="error" role="alert">
+              {errors.phone}
+            </span>
+          )}
+        </div>
+
+        <div className="field">
           <label htmlFor={`${idPrefix}-interest`}>I’m interested in *</label>
           <select
             ref={interestSelectRef}

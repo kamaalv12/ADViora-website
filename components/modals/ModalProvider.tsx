@@ -28,6 +28,7 @@ interface ModalContextType {
 const initialFormValues: FormFields = {
   name: '',
   email: '',
+  phone: '',
   interest: '',
   message: '',
   website: '',

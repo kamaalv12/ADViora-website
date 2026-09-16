@@ -3,6 +3,7 @@ import { ALLOWED_INTERESTS, InterestArea } from './data';
 export interface FormFields {
   name: string;
   email: string;
+  phone: string;
   interest: string;
   message: string;
   website?: string; // honeypot
@@ -11,6 +12,7 @@ export interface FormFields {
 export interface FormErrors {
   name?: string;
   email?: string;
+  phone?: string;
   interest?: string;
   message?: string;
 }
@@ -31,6 +33,15 @@ export function validateField(id: keyof FormFields, value: string): string {
       // Sensible RFC 5322 compatible email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(trimmed)) return 'Enter a valid email address.';
+      return '';
+
+    case 'phone':
+      if (!trimmed) return 'Please enter your mobile number.';
+      const phoneDigits = trimmed.replace(/\D/g, '');
+      if (phoneDigits.length < 8) return 'Please enter a valid mobile number (minimum 8 digits).';
+      if (phoneDigits.length > 15) return 'Mobile number cannot exceed 15 digits.';
+      const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\./0-9]*$/;
+      if (!phoneRegex.test(trimmed)) return 'Enter a valid mobile number (e.g. +91 99456 33771).';
       return '';
 
     case 'interest':
@@ -68,6 +79,12 @@ export function validateAllFields(fields: FormFields): { isValid: boolean; error
   if (emailError) {
     errors.email = emailError;
     if (!firstInvalidField) firstInvalidField = 'email';
+  }
+
+  const phoneError = validateField('phone', fields.phone);
+  if (phoneError) {
+    errors.phone = phoneError;
+    if (!firstInvalidField) firstInvalidField = 'phone';
   }
 
   const interestError = validateField('interest', fields.interest);
