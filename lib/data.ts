@@ -29,6 +29,7 @@ export interface DivisionInfo {
   tags: string[];
   route: string;
   ctaText: string;
+  highlights?: string[];
 }
 
 export const ADVIORA_CONTACT = {
@@ -97,6 +98,12 @@ export const DIVISIONS: DivisionInfo[] = [
     tags: ['ITSM', 'Artificial intelligence', 'Digital transformation', 'Business transformation', 'Professional training'],
     route: '/digital',
     ctaText: 'Explore ADViora Digital',
+    highlights: [
+      'Business priorities & transformation planning',
+      'Process and operating-model improvement',
+      'ITSM, AI & modern digital solutions',
+      'Change readiness & organizational capability',
+    ],
   },
 ];
 

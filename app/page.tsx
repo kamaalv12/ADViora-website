@@ -74,14 +74,14 @@ export default function HomePage() {
       {/* Services Section */}
       <section className="section wrap" id="services">
         <div className="section-intro">
-          <span className="eyebrow">ADViora Digital</span>
+          <span className="eyebrow">Our Focus</span>
           <h2>
             Business, technology and people.
             <br />
             Moving forward together.
           </h2>
           <p>
-            Align strategy, processes and technology to navigate change and build lasting capability.
+            We help organizations connect strategic vision with practical execution to build lasting capability.
           </p>
         </div>
         <div className="divisions">
