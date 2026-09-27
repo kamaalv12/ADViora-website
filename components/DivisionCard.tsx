@@ -4,20 +4,18 @@ import Image from 'next/image';
 import { DivisionInfo } from '@/lib/data';
 
 export function DivisionCard({ division }: { division: DivisionInfo }) {
-  const isAcademy = division.id === 'academy';
-
   return (
     <Link
       href={division.route}
-      className={`division division-card-link ${isAcademy ? 'academy' : ''}`}
-      aria-label={`Visit ${division.title}`}
+      className="division division-card-link"
+      aria-label={`Explore ${division.title}`}
     >
       <div className="division-photo">
         <Image
           src={division.photo}
           alt={division.photoAlt}
-          width={600}
-          height={300}
+          width={800}
+          height={320}
           className="division-photo-img"
         />
         <span className="division-photo-label">{division.photoLabel}</span>
@@ -31,7 +29,7 @@ export function DivisionCard({ division }: { division: DivisionInfo }) {
           {division.emblem}
         </span>
         <span className="division-label">{division.label}</span>
-        <span className="number">{division.number}</span>
+        {division.number ? <span className="number">{division.number}</span> : null}
       </div>
 
       <h3>{division.title}</h3>

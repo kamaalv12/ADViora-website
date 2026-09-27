@@ -62,8 +62,8 @@ export function Header() {
         </button>
 
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`} id="navigation" aria-label="Main navigation">
-          <Link href="/#divisions" onClick={closeMenu}>
-            Our divisions
+          <Link href="/#services" onClick={closeMenu}>
+            Our services
           </Link>
           <Link href="/#about" onClick={closeMenu}>
             Our story

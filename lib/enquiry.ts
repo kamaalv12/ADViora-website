@@ -2,8 +2,6 @@ export const interests = [
   "Business transformation",
   "ITSM / AI / digital transformation",
   "Professional training",
-  "Sports & athlete development",
-  "School & community programmes",
 ] as const;
 export type Interest = (typeof interests)[number];
 export type FormValues = {

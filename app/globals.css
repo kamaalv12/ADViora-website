@@ -399,11 +399,12 @@ header {
   font-size: 1.05rem;
 }
 
-/* Divisions Section */
+/* Services Section */
 .divisions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  grid-template-columns: 1fr;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
 .division-card-link {
@@ -418,12 +419,8 @@ header {
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 }
 
-.division-card-link.academy {
-  background: #fff4f6;
-}
-
 .division-photo {
-  height: 215px;
+  height: 280px;
   position: relative;
   overflow: hidden;
   margin-bottom: 28px;
@@ -632,45 +629,6 @@ header {
   font-size: 0.875rem;
   color: #becdd2;
   line-height: 1.8;
-}
-
-/* Academy Intro */
-.academy-head {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.academy-head p {
-  margin: 20px 0 24px;
-  font-size: 1.05rem;
-}
-
-.academy-image {
-  height: 330px;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-}
-
-.academy-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 65%;
-}
-
-.academy-image .image-label {
-  position: absolute;
-  bottom: 18px;
-  left: 18px;
-  background: #fffffff0;
-  border-radius: 25px;
-  padding: 8px 15px;
-  font-size: 0.75rem;
-  color: #08224f;
-  font-weight: 600;
 }
 
 /* Booking Band */
@@ -1493,7 +1451,9 @@ footer {
     text-align: center;
   }
   .consulting-hero h1 {
-    font-size: clamp(2.5rem, 10.5vw, 3.6rem);
+    font-size: clamp(1.65rem, 8vw, 3.2rem);
+    line-height: 1.15;
+    overflow-wrap: break-word;
   }
   .consulting-hero p {
     font-size: 1rem;
@@ -1550,30 +1510,30 @@ footer {
   .section-intro {
     margin-bottom: 30px;
   }
-  .divisions, .academy-head, .story, .contact-grid {
+  .divisions, .story, .contact-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  #divisions .division-photo {
+  #services .division-photo, #divisions .division-photo {
     height: 190px;
     margin-bottom: 24px;
   }
-  #divisions .division-top,
-  #divisions .division-card-link > h3,
-  #divisions .division-card-link > p,
-  #divisions .division-card-link > .tags,
-  #divisions .division-card-link > .text-link {
+  #services .division-top, #divisions .division-top,
+  #services .division-card-link > h3, #divisions .division-card-link > h3,
+  #services .division-card-link > p, #divisions .division-card-link > p,
+  #services .division-card-link > .tags, #divisions .division-card-link > .tags,
+  #services .division-card-link > .text-link, #divisions .division-card-link > .text-link {
     margin-left: 24px;
     margin-right: 24px;
   }
-  #divisions .division-card-link > .text-link {
+  #services .division-card-link > .text-link, #divisions .division-card-link > .text-link {
     align-self: center;
   }
-  #divisions .division-photo-label {
+  #services .division-photo-label, #divisions .division-photo-label {
     left: 15px;
     font-size: 0.68rem;
   }
-  #divisions .division-card-link {
+  #services .division-card-link, #divisions .division-card-link {
     padding-bottom: 28px;
     border-radius: 16px;
   }
@@ -1602,13 +1562,6 @@ footer {
   }
   .capability b {
     margin-bottom: 15px;
-  }
-  .academy-head {
-    text-align: center;
-  }
-  .academy-image {
-    height: 270px;
-    border-radius: 20px;
   }
   .booking-grid {
     grid-template-columns: 1fr;

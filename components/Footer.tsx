@@ -17,7 +17,6 @@ export function Footer() {
         </Link>
         <div className="footer-links">
           <Link href="/digital">ADViora Digital</Link>
-          <Link href="/academy">ADViora Academy</Link>
           <Link href="/#about">Our story</Link>
           <Link href="/#contact">Get in touch</Link>
         </div>
@@ -33,7 +32,7 @@ export function Footer() {
         </span>
       </div>
       <div className="preview-label">
-        Design preview · Final logo, programme availability and contact details await confirmation.
+        Design preview · UI demonstration.
       </div>
     </footer>
   );

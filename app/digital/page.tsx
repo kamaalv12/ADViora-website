@@ -21,8 +21,8 @@ export default function DigitalPage() {
   return (
     <>
       <section className="wrap detail-hero">
-        <Link className="breadcrumb" href="/#divisions">
-          ← Our divisions
+        <Link className="breadcrumb" href="/">
+          ← Home
         </Link>
         <span className="eyebrow">Business transformation, technology and training</span>
         <h1>ADViora Digital</h1>

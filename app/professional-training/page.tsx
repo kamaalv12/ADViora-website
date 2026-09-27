@@ -21,8 +21,8 @@ export default function ProfessionalTrainingPage() {
   return (
     <>
       <section className="wrap detail-hero">
-        <Link className="breadcrumb" href="/#divisions">
-          ← All services &amp; programmes
+        <Link className="breadcrumb" href="/digital">
+          ← ADViora Digital
         </Link>
         <span className="eyebrow">{service.eyebrow}</span>
         <h1>{service.title}</h1>
@@ -63,11 +63,10 @@ export default function ProfessionalTrainingPage() {
 
       <section className="section wrap">
         <span className="eyebrow">Explore further</span>
-        <h2>Other services &amp; programmes</h2>
+        <h2>Other digital services</h2>
         <div className="related-links">
           <Link href="/business-transformation">Business transformation ↗</Link>
           <Link href="/technology-digital">Technology &amp; digital transformation ↗</Link>
-          <Link href="/sports-athlete-development">Sports &amp; athlete development ↗</Link>
         </div>
       </section>
 

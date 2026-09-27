@@ -11,14 +11,14 @@ import { ChannelModal } from '@/components/modals/ChannelModal';
 export const metadata: Metadata = {
   title: 'ADViora Consulting — Turning Potential into Performance',
   description:
-    'ADViora Consulting brings together business transformation, technology, professional training and athlete development through ADViora Digital and ADViora Academy.',
+    'ADViora Consulting supports business transformation, IT service management, AI, digital transformation and professional training through ADViora Digital.',
   icons: {
     icon: '/icon.svg',
   },
   openGraph: {
     title: 'ADViora Consulting — Turning Potential into Performance',
     description:
-      'ADViora Consulting brings together business transformation, technology, professional training and athlete development through ADViora Digital and ADViora Academy.',
+      'ADViora Consulting supports business transformation, IT service management, AI, digital transformation and professional training through ADViora Digital.',
     siteName: 'ADViora Consulting',
     type: 'website',
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ADViora Consulting — Turning Potential into Performance',
     description:
-      'ADViora Consulting brings together business transformation, technology, professional training and athlete development through ADViora Digital and ADViora Academy.',
+      'ADViora Consulting supports business transformation, IT service management, AI, digital transformation and professional training through ADViora Digital.',
   },
 };
 

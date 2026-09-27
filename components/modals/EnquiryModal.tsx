@@ -138,7 +138,7 @@ export function EnquiryModal() {
           <span className="eyebrow">Let’s move forward</span>
           <h2 id="enquiry-modal-title">Your next step starts here.</h2>
           <p id="enquiry-modal-description">
-            Tell us about your goals. Explore business, technology, training or sports with ADViora.
+            Tell us about your goals. Explore business transformation, technology and professional training with ADViora.
           </p>
         </div>
 

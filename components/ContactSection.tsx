@@ -14,16 +14,16 @@ export function ContactSection() {
             YOU STARTED.
           </h2>
           <p>
-            Tell us what you want to achieve—whether it’s transforming your organization, developing your
-            team or exploring sports.
+            Tell us what you want to achieve—whether it’s transforming your organization, improving
+            technology services or developing your team.
           </p>
 
           <DirectContactButtons />
 
           <div className="contact-list">
-            <span>For businesses &amp; professional teams</span>
-            <span>For schools &amp; community partners</span>
-            <span>For athletes, learners &amp; parents</span>
+            <span>For businesses and organizations</span>
+            <span>For IT and transformation teams</span>
+            <span>For professionals and team leaders</span>
           </div>
         </div>
 

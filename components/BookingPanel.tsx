@@ -4,16 +4,14 @@ import React, { useState } from 'react';
 import { useEnquiryModal } from './modals/ModalProvider';
 
 const SERVICE_MAPPING: Record<string, string> = {
-  'Digital consulting': 'Business transformation',
+  'Business transformation': 'Business transformation',
+  'ITSM / AI / digital transformation': 'ITSM / AI / digital transformation',
   'Professional training': 'Professional training',
-  'School programme': 'School & community programmes',
-  'Sports coaching': 'Sports & athlete development',
-  'Athlete development': 'Sports & athlete development',
 };
 
 export function BookingPanel() {
-  const [selectedOption, setSelectedOption] = useState('Digital consulting');
-  const { openEnquiryModal, setTriggerElement } = useEnquiryModal();
+  const [selectedOption, setSelectedOption] = useState('Business transformation');
+  const { openEnquiryModal } = useEnquiryModal();
 
   const handleEnquire = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -23,24 +21,22 @@ export function BookingPanel() {
 
   return (
     <div className="booking-panel">
-      <label htmlFor="booking-service">What would you like to book?</label>
+      <label htmlFor="booking-service">What would you like to discuss?</label>
       <select
         id="booking-service"
         value={selectedOption}
         onChange={(e) => setSelectedOption(e.target.value)}
       >
-        <option value="Digital consulting">Digital consulting</option>
+        <option value="Business transformation">Business transformation</option>
+        <option value="ITSM / AI / digital transformation">ITSM / AI / digital transformation</option>
         <option value="Professional training">Professional training</option>
-        <option value="School programme">School programme</option>
-        <option value="Sports coaching">Sports coaching</option>
-        <option value="Athlete development">Athlete development</option>
       </select>
 
       <div className="booking-summary">
         <span>Schedule &amp; location</span>
-        <strong>To be confirmed</strong>
-        <span>Programme fee</span>
-        <strong>Quote on enquiry</strong>
+        <strong>Tailored to engagement</strong>
+        <span>Engagement scope</span>
+        <strong>Discussed on enquiry</strong>
       </div>
 
       <div className="booking-actions">

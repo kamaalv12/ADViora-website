@@ -27,12 +27,12 @@ export default function HomePage() {
             technology and learning—with a clear purpose.
           </p>
           <div className="hero-actions">
-            <Link href="#divisions" className="button">
-              Explore our divisions ↗
+            <Link href="#services" className="button">
+              Explore our services ↗
             </Link>
             <EnquiryTrigger variant="button secondary">Let’s talk</EnquiryTrigger>
           </div>
-          <div className="hero-caption">Business Transformation · Technology · Training · Sports</div>
+          <div className="hero-caption">Business Transformation · Technology · Professional Training</div>
         </div>
 
         <div className="consulting-visual">
@@ -67,22 +67,20 @@ export default function HomePage() {
             <span>People, organizations and performance.</span>
           </div>
           <Link href="/digital">ADViora Digital ↗</Link>
-          <Link href="/academy">ADViora Academy ↗</Link>
         </div>
       </div>
 
-      {/* Divisions Section */}
-      <section className="section wrap" id="divisions">
+      {/* Services Section */}
+      <section className="section wrap" id="services">
         <div className="section-intro">
-          <span className="eyebrow">Two divisions. One shared purpose.</span>
+          <span className="eyebrow">ADViora Digital</span>
           <h2>
-            Different strengths.
+            Business, technology and people.
             <br />
-            Greater possibilities.
+            Moving forward together.
           </h2>
           <p>
-            From the way organizations work to the way individuals learn and compete, ADViora connects
-            ambition with a practical path forward.
+            Align strategy, processes and technology to navigate change and build lasting capability.
           </p>
         </div>
         <div className="divisions">
@@ -119,36 +117,6 @@ export default function HomePage() {
                 <p>{cap.description}</p>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Academy Section */}
-      <section className="section wrap" id="academy">
-        <div className="academy-head">
-          <div>
-            <span className="eyebrow">ADViora Academy</span>
-            <h2>
-              Develop people.
-              <br />
-              Expand possibilities.
-            </h2>
-            <p>
-              Professional training, sports and athlete development bring learning into practice.
-              Explore pathways for individuals, teams and institutions.
-            </p>
-            <Link href="/professional-training" className="button">
-              Explore learning &amp; development ↗
-            </Link>
-          </div>
-          <div className="academy-image">
-            <Image
-              src="/images/training.webp"
-              alt="Attendees learning at a professional workshop"
-              width={600}
-              height={330}
-            />
-            <span className="image-label">Learning that moves people forward</span>
           </div>
         </div>
       </section>
