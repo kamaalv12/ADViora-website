@@ -133,7 +133,7 @@ export function ChannelModal() {
           type="button"
           className="modal-close"
           onClick={closeChannelModal}
-          aria-label="Close connection preview dialog"
+          aria-label="Close dialog"
         >
           ×
         </button>

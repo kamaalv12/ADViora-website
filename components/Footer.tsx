@@ -31,9 +31,6 @@ export function Footer() {
           </a>
         </span>
       </div>
-      <div className="preview-label">
-        Design preview · UI demonstration.
-      </div>
     </footer>
   );
 }

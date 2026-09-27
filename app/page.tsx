@@ -8,6 +8,7 @@ import { ProcessSteps } from '@/components/ProcessSteps';
 import { BrandMeaning } from '@/components/BrandMeaning';
 import { ContactSection } from '@/components/ContactSection';
 import { FaqSection } from '@/components/FaqSection';
+import { GallerySection } from '@/components/GallerySection';
 import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 
 export default function HomePage() {
@@ -151,6 +152,9 @@ export default function HomePage() {
 
       {/* FAQ Section */}
       <FaqSection />
+
+      {/* Gallery Section */}
+      <GallerySection />
     </>
   );
 }
