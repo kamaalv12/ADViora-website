@@ -78,7 +78,9 @@ describe('Route Boundary Contract & Security Tests', () => {
     it('safely rejects missing database configuration with HTTP 500 when valid payload passes validation', async () => {
       // In this test phase, MONGODB_URI is intentionally not configured
       const previousUri = process.env.MONGODB_URI;
+      const previousUrl = process.env.MONGODB_URL;
       delete process.env.MONGODB_URI;
+      delete process.env.MONGODB_URL;
 
       const req = new NextRequest('http://localhost:3000/api/signup', {
         method: 'POST',
@@ -102,6 +104,7 @@ describe('Route Boundary Contract & Security Tests', () => {
       assert.equal(json.errors, undefined);
 
       if (previousUri) process.env.MONGODB_URI = previousUri;
+      if (previousUrl) process.env.MONGODB_URL = previousUrl;
     });
   });
 });

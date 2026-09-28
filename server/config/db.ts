@@ -38,9 +38,10 @@ if (!cached) {
 }
 
 async function connectToDatabase() {
-  const rawUri = process.env.MONGODB_URI;
+  // Support both MONGODB_URI and MONGODB_URL seamlessly
+  const rawUri = process.env.MONGODB_URI || process.env.MONGODB_URL;
   if (!rawUri) {
-    throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
+    throw new Error('Please define the MONGODB_URI (or MONGODB_URL) environment variable inside .env.local');
   }
 
   const uri = cleanMongoUri(rawUri);
