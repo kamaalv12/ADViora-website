@@ -3,7 +3,23 @@ import mongoose from 'mongoose';
 // Ensure all models are registered before any query execution
 import '@/server/models';
 
-export function getDatabaseNameFromUri(uri: string): string {
+/**
+ * Strips accidental wrapping quotes (single or double) and trims whitespace.
+ * Prevents MongoParseError ("Invalid scheme") if the URI in Vercel or .env has quotes.
+ */
+export function cleanMongoUri(rawUri: string): string {
+  let cleaned = rawUri.trim();
+  if (
+    (cleaned.startsWith('"') && cleaned.endsWith('"')) ||
+    (cleaned.startsWith("'") && cleaned.endsWith("'"))
+  ) {
+    cleaned = cleaned.slice(1, -1).trim();
+  }
+  return cleaned;
+}
+
+export function getDatabaseNameFromUri(rawUri: string): string {
+  const uri = cleanMongoUri(rawUri);
   const match = uri.match(/^mongodb(?:\+srv)?:\/\/[^/]+\/([^?]+)/);
   if (!match || !match[1] || match[1].trim().length === 0) {
     throw new Error('MONGODB_URI must specify an explicit database path (e.g. mongodb+srv://.../<dbname>?...)');
@@ -22,10 +38,12 @@ if (!cached) {
 }
 
 async function connectToDatabase() {
-  const uri = process.env.MONGODB_URI;
-  if (!uri) {
+  const rawUri = process.env.MONGODB_URI;
+  if (!rawUri) {
     throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
   }
+
+  const uri = cleanMongoUri(rawUri);
 
   // Enforce explicit database path in connection URI
   getDatabaseNameFromUri(uri);

@@ -201,6 +201,17 @@ describe('ADViora Backend & UTM Isolated Contract Tests', () => {
       assert.equal(getDatabaseNameFromUri(devUri), 'adviora_dev');
     });
 
+    it('handles URIs with surrounding quotes or whitespace correctly', () => {
+      const quotedDouble = '"mongodb+srv://user:pass@cluster.mongodb.net/adviora_prod?retryWrites=true"';
+      assert.equal(getDatabaseNameFromUri(quotedDouble), 'adviora_prod');
+
+      const quotedSingle = "'mongodb+srv://user:pass@cluster.mongodb.net/adviora_prod?retryWrites=true'";
+      assert.equal(getDatabaseNameFromUri(quotedSingle), 'adviora_prod');
+
+      const withWhitespace = '  mongodb+srv://user:pass@cluster.mongodb.net/adviora_prod?retryWrites=true  ';
+      assert.equal(getDatabaseNameFromUri(withWhitespace), 'adviora_prod');
+    });
+
     it('throws error if database path is missing from URI', () => {
       const invalidUri = 'mongodb+srv://user:pass@cluster.mongodb.net?retryWrites=true';
       assert.throws(() => getDatabaseNameFromUri(invalidUri), /must specify an explicit database path/);
