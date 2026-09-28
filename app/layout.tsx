@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { EnquiryModal } from '@/components/modals/EnquiryModal';
 import { ChannelModal } from '@/components/modals/ChannelModal';
+import { UtmCapture } from '@/components/UtmCapture';
 
 export const metadata: Metadata = {
   title: 'ADViora Consulting — Turning Potential into Performance',
@@ -63,6 +64,7 @@ export default function RootLayout({
           <FloatingWhatsApp />
           <EnquiryModal />
           <ChannelModal />
+          <UtmCapture />
         </ModalProvider>
       </body>
     </html>

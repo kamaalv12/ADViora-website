@@ -23,6 +23,9 @@ interface ModalContextType {
   sharedFormValues: FormFields;
   setSharedFormValues: React.Dispatch<React.SetStateAction<FormFields>>;
   updateServiceInterest: (service: string) => void;
+  isSubmitting: boolean;
+  setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+  resetFormValues: () => void;
 }
 
 const initialFormValues: FormFields = {
@@ -42,6 +45,11 @@ export function ModalProvider({ children }: { children: ReactNode }) {
   const [triggerElement, setTriggerElement] = useState<HTMLElement | null>(null);
   const [channelModal, setChannelModal] = useState<ChannelModalInfo | null>(null);
   const [sharedFormValues, setSharedFormValues] = useState<FormFields>(initialFormValues);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
+  const resetFormValues = useCallback(() => {
+    setSharedFormValues(initialFormValues);
+  }, []);
 
   const updateServiceInterest = useCallback((service: string) => {
     setSharedFormValues((prev) => {
@@ -121,6 +129,9 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         sharedFormValues,
         setSharedFormValues,
         updateServiceInterest,
+        isSubmitting,
+        setIsSubmitting,
+        resetFormValues,
       }}
     >
       {children}
