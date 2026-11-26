@@ -5,6 +5,7 @@ import { useEnquiryModal } from './modals/ModalProvider';
 
 interface EnquiryTriggerProps {
   service?: string;
+  itemContext?: string;
   className?: string;
   children?: React.ReactNode;
   variant?: 'button' | 'button secondary' | 'text-link' | 'raw';
@@ -13,16 +14,17 @@ interface EnquiryTriggerProps {
 
 export function EnquiryTrigger({
   service,
+  itemContext,
   className = '',
   children,
   variant = 'button',
   ariaLabel,
 }: EnquiryTriggerProps) {
-  const { openEnquiryModal, setTriggerElement } = useEnquiryModal();
+  const { openEnquiryModal } = useEnquiryModal();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    openEnquiryModal(service, e.currentTarget);
+    openEnquiryModal(service, e.currentTarget, itemContext);
   };
 
   const baseClass =

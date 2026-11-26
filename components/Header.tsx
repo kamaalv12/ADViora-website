@@ -3,11 +3,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useEnquiryModal } from './modals/ModalProvider';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { openEnquiryModal, setTriggerElement } = useEnquiryModal();
+  const pathname = usePathname();
+  const { openEnquiryModal } = useEnquiryModal();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const ctaButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -36,6 +38,14 @@ export function Header() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen]);
 
+  const navLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'Consulting & Advisory', href: '/consulting-advisory' },
+    { label: 'Technology Solutions', href: '/technology-solutions' },
+    { label: 'Academy & Training', href: '/academy-training' },
+    { label: 'Enterprise Solutions', href: '/enterprise-solutions' },
+  ];
+
   return (
     <header>
       <div className="wrap header-inner">
@@ -62,15 +72,20 @@ export function Header() {
         </button>
 
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`} id="navigation" aria-label="Main navigation">
-          <Link href="/#services" onClick={closeMenu}>
-            Our services
-          </Link>
-          <Link href="/#about" onClick={closeMenu}>
-            Our story
-          </Link>
-          <Link href="/#booking" onClick={closeMenu}>
-            Engagements
-          </Link>
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className={isActive ? 'active' : ''}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <button
             ref={ctaButtonRef}
             type="button"

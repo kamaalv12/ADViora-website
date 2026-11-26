@@ -7,23 +7,22 @@ export function ContactSection() {
     <section className="section contact-section" id="contact">
       <div className="wrap contact-grid">
         <div>
-          <span className="eyebrow">Let’s move forward, together</span>
+          <span className="eyebrow">Connect With ADViora</span>
           <h2>
             LET’S GET
             <br />
             YOU STARTED.
           </h2>
           <p>
-            Tell us what you want to achieve—whether it’s transforming your organization, improving
-            technology services or developing your team.
+            Tell us what you want to achieve—whether it’s evaluating IT operating maturity, implementing ServiceNow and AI workflows, or developing professional capabilities across your teams.
           </p>
 
           <DirectContactButtons />
 
           <div className="contact-list">
-            <span>For businesses and organizations</span>
-            <span>For IT and transformation teams</span>
-            <span>For professionals and team leaders</span>
+            <span>For enterprise &amp; mid-sized organisations</span>
+            <span>For IT leadership &amp; transformation teams</span>
+            <span>For professionals, freshers &amp; learners</span>
           </div>
         </div>
 

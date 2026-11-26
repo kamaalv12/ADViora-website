@@ -2,18 +2,20 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ExpertiseCard } from '@/components/ExpertiseCard';
+import { VerticalsGrid } from '@/components/VerticalsGrid';
+import { ApproachSection } from '@/components/ApproachSection';
+import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { ContactSection } from '@/components/ContactSection';
 import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 
 export const metadata: Metadata = {
-  title: 'ADViora Digital — Business Transformation, Technology & AI',
+  title: 'ADViora Digital — Technology Consulting, Digital Transformation & Learning',
   description:
-    'Align people, processes and technology to help your organization navigate change and build lasting capability.',
+    'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
   openGraph: {
-    title: 'ADViora Digital — Business Transformation, Technology & AI',
+    title: 'ADViora Digital — Technology Consulting, Digital Transformation & Learning',
     description:
-      'Align people, processes and technology to help your organization navigate change and build lasting capability.',
+      'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
   },
 };
 
@@ -24,52 +26,41 @@ export default function DigitalPage() {
         <Link className="breadcrumb" href="/">
           ← Home
         </Link>
-        <span className="eyebrow">Business transformation, technology and training</span>
+        <span className="eyebrow">Integrated Capabilities</span>
         <h1>ADViora Digital</h1>
         <p>
-          Align people, processes and technology to help your organization navigate change and build
-          lasting capability.
+          We bring together industry experience, proven frameworks, modern technology and practical learning approaches to help organisations translate business challenges into measurable outcomes.
         </p>
+
         <div className="hero-actions" style={{ marginTop: '24px' }}>
-          <EnquiryTrigger service="Business transformation">Discuss your goals ↗</EnquiryTrigger>
+          <Link href="#services" className="button">
+            Explore our verticals <span>↗</span>
+          </Link>
+          <EnquiryTrigger variant="button secondary">
+            Discuss your requirements <span>↗</span>
+          </EnquiryTrigger>
         </div>
-        <div className="division-page-photo">
+
+        <figure className="detail-cover">
           <Image
             src="/images/technology.webp"
-            alt="A laptop displaying software code"
+            alt="Engineers and consultants collaborating on digital architecture"
             width={1200}
-            height={320}
+            height={380}
             priority
           />
-        </div>
+          <figcaption>Consulting · Technology Solutions · Professional Academy · Enterprise Capability</figcaption>
+        </figure>
       </section>
 
-      <section className="section wrap">
-        <div className="section-intro">
-          <span className="eyebrow">Our areas of focus</span>
-          <h2>Explore ADViora Digital</h2>
-        </div>
-        <div className="division-services">
-          <ExpertiseCard
-            prefix="01 / ADViora Digital"
-            title="Business transformation"
-            description="Connect business priorities with people, processes and practical plans for change."
-            route="/business-transformation"
-          />
-          <ExpertiseCard
-            prefix="02 / ADViora Digital"
-            title="ITSM, AI & digital transformation"
-            description="Explore service management, automation opportunities and digital ways of working."
-            route="/technology-digital"
-          />
-          <ExpertiseCard
-            prefix="03 / ADViora Digital"
-            title="Technology & professional training"
-            description="Build the knowledge and confidence your team needs to apply new skills."
-            route="/professional-training"
-          />
-        </div>
-      </section>
+      {/* The Four Business Verticals */}
+      <VerticalsGrid />
+
+      {/* Approach */}
+      <ApproachSection />
+
+      {/* Why Choose ADViora */}
+      <WhyChooseUs />
 
       <ContactSection />
     </>

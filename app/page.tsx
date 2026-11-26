@@ -1,159 +1,162 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { DIVISIONS, DIGITAL_CAPABILITIES } from '@/lib/data';
-import { DivisionCard } from '@/components/DivisionCard';
-import { BookingPanel } from '@/components/BookingPanel';
-import { ProcessSteps } from '@/components/ProcessSteps';
-import { BrandMeaning } from '@/components/BrandMeaning';
+import type { Metadata } from 'next';
+import { AboutSection } from '@/components/AboutSection';
+import { VerticalsGrid } from '@/components/VerticalsGrid';
+import { ApproachSection } from '@/components/ApproachSection';
+import { WhyChooseUs } from '@/components/WhyChooseUs';
+import { DeliveryLevels } from '@/components/DeliveryLevels';
+import { ConsultingPackages } from '@/components/ConsultingPackages';
+import { OrganisationsGrid } from '@/components/OrganisationsGrid';
 import { ContactSection } from '@/components/ContactSection';
 import { FaqSection } from '@/components/FaqSection';
 import { GallerySection } from '@/components/GallerySection';
 import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 
+export const metadata: Metadata = {
+  title: 'ADViora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
+  description:
+    'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+  openGraph: {
+    title: 'ADViora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
+    description:
+      'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+    url: 'https://www.advioraconsulting.com/',
+  },
+};
+
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="consulting-hero wrap">
-        <div>
-          <span className="eyebrow">ADViora Consulting</span>
-          <h1>
-            Turning potential
+      {/* 1. Hero Section */}
+      <section className="consulting-hero wrap" id="hero">
+        <div className="hero-content">
+          <span className="eyebrow">ADViora Consulting · ADViora Digital</span>
+          <h1 className="hero-headline">
+            Transforming Businesses.
             <br />
-            into <em>performance.</em>
+            Empowering People.
+            <br />
+            Enabling Technology.
           </h1>
-          <p>
-            Advancing people, strengthening organizations and shaping what comes next. Consulting,
-            technology and learning—with a clear purpose.
+          <p className="hero-lead">
+            ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.
           </p>
+
+          <div className="hero-themes" aria-label="Core operational themes">
+            <span className="theme-tag">IT Transformation</span>
+            <span className="theme-divider">·</span>
+            <span className="theme-tag">AI &amp; Digital Solutions</span>
+            <span className="theme-divider">·</span>
+            <span className="theme-tag">Enterprise Training</span>
+          </div>
+
           <div className="hero-actions">
             <Link href="#services" className="button">
-              Explore our services ↗
+              Explore our services <span>↗</span>
             </Link>
-            <EnquiryTrigger variant="button secondary">Let’s talk</EnquiryTrigger>
+            <EnquiryTrigger variant="button secondary">
+              Discuss your requirements <span>↗</span>
+            </EnquiryTrigger>
           </div>
-          <div className="hero-caption">Business Transformation · Technology · Professional Training</div>
         </div>
 
         <div className="consulting-visual">
           <Image
             src="/images/consulting.webp"
-            alt="A professional team collaborating on business strategy"
+            alt="A professional team collaborating on IT transformation and strategy"
             width={800}
             height={500}
             priority
+            className="hero-visual-img"
           />
           <div className="visual-pills">
-            <span>Strategy</span>
-            <span>People</span>
-            <span>Progress</span>
+            <span>Consulting</span>
+            <span>Technology</span>
+            <span>Academy</span>
           </div>
           <div className="visual-caption">
-            <span>Advance. Vision. Aura.</span>
+            <span>Advancing People, Organisations and Performance</span>
             <strong>
-              Progress begins
+              From business challenge
               <br />
-              with perspective.
+              to measurable outcomes.
             </strong>
           </div>
         </div>
       </section>
 
-      {/* Quick Bar */}
+      {/* 2. Quick Bar */}
       <div className="quick-bar">
         <div className="wrap quick-inner">
           <div>
-            <strong>One purpose. Multiple possibilities.</strong>
-            <span>People, organizations and performance.</span>
+            <strong>Advancing People, Organisations and Performance.</strong>
+            <span>Consulting · Technology Solutions · Professional Academy · Enterprise Capability</span>
           </div>
-          <Link href="/digital">ADViora Digital ↗</Link>
+          <Link href="/digital">ADViora Digital Overview ↗</Link>
         </div>
       </div>
 
-      {/* Services Section */}
-      <section className="section wrap" id="services">
+      {/* 3. About ADViora */}
+      <AboutSection />
+
+      {/* 4. Four Business Verticals */}
+      <VerticalsGrid />
+
+      {/* 5. Our Approach: Assess -> Design -> Implement -> Optimise */}
+      <ApproachSection />
+
+      {/* 6. Why Choose ADViora (6 selling points) */}
+      <WhyChooseUs />
+
+      {/* 7. Professional Training Catalogue Preview & Delivery Levels */}
+      <section className="section wrap training-preview-section" id="academy-preview">
         <div className="section-intro">
-          <span className="eyebrow">Our Focus</span>
-          <h2>
-            Business, technology and people.
-            <br />
-            Moving forward together.
-          </h2>
+          <span className="eyebrow">Professional Academy &amp; Training</span>
+          <h2>Industry-relevant learning and professional certification pathways</h2>
           <p>
-            We help organizations connect strategic vision with practical execution to build lasting capability.
+            Upskill teams in ITIL, ITSM, ServiceNow, ISO standards, Artificial Intelligence, Agile, DevOps, SRE and modern IT management.
           </p>
         </div>
-        <div className="divisions">
-          {DIVISIONS.map((division) => (
-            <DivisionCard key={division.id} division={division} />
-          ))}
-        </div>
-      </section>
 
-      {/* Digital Capabilities Section */}
-      <section className="section digital-section" id="digital">
-        <div className="wrap">
-          <div className="heading-row">
-            <div>
-              <span className="eyebrow">ADViora Digital</span>
-              <h2>
-                Build a business
-                <br />
-                ready for what’s next.
-              </h2>
-            </div>
+        <DeliveryLevels />
+
+        <div className="training-cta-banner">
+          <div className="training-cta-text">
+            <h3>Explore the Professional Training Catalogue</h3>
             <p>
-              Make change work for your organization—with a clear strategy, useful technology and people
-              equipped to deliver.
+              Browse 60+ curated topics across 6 categories, with flexible delivery onsite, virtually or in hybrid cohorts.
             </p>
           </div>
-          <div className="capabilities">
-            {DIGITAL_CAPABILITIES.map((cap) => (
-              <article key={cap.number} className="capability">
-                <b>
-                  {cap.number} — {cap.category}
-                </b>
-                <h3>{cap.title}</h3>
-                <p>{cap.description}</p>
-              </article>
-            ))}
+          <div className="training-cta-actions">
+            <Link href="/academy-training" className="button">
+              View full training catalogue <span>↗</span>
+            </Link>
+            <EnquiryTrigger
+              service="Professional training"
+              itemContext="Corporate and customised technology training"
+              variant="button secondary"
+            >
+              Discuss corporate training <span>↗</span>
+            </EnquiryTrigger>
           </div>
         </div>
       </section>
 
-      {/* Booking / Engagements Section */}
-      <section className="booking-band" id="booking">
-        <div className="wrap booking-grid">
-          <div>
-            <span className="eyebrow">Your journey starts here</span>
-            <h2>
-              Discuss your requirements.
-              <br />
-              Plan the engagement.
-            </h2>
-            <p>
-              Discuss your goals and scope with ADViora to find the right service, programme and next
-              steps.
-            </p>
-          </div>
-          <BookingPanel />
-        </div>
-      </section>
+      {/* 8. Consulting Engagements Preview */}
+      <ConsultingPackages showHeading={true} limit={4} showViewAll={true} />
 
-      {/* Process Section */}
-      <ProcessSteps />
+      {/* 9. Organisations We’ve Worked With */}
+      <OrganisationsGrid />
 
-      {/* Story / Meaning Section */}
-      <BrandMeaning />
-
-      {/* Contact Section */}
+      {/* 10. Contact / Enquiry Section */}
       <ContactSection />
 
-      {/* FAQ Section */}
+      {/* 11. FAQ Section */}
       <FaqSection />
 
-      {/* Gallery Section */}
+      {/* 12. Gallery Section */}
       <GallerySection />
     </>
   );

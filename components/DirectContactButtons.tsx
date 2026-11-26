@@ -9,21 +9,40 @@ export function DirectContactButtons() {
 
   return (
     <div className="direct-contact">
-      <button
-        type="button"
-        className="button whatsapp"
-        onClick={(e) => openChannelModal('whatsapp', e.currentTarget)}
-      >
-        Chat on WhatsApp ↗
-      </button>
-      <button
-        type="button"
-        className="button email-button"
-        onClick={(e) => openChannelModal('email', e.currentTarget)}
-      >
-        Email ADViora ↗
-      </button>
-      <small>WhatsApp: {ADVIORA_CONTACT.whatsappDisplay} · Email: {ADVIORA_CONTACT.email}</small>
+      <div className="direct-buttons-row">
+        <a href={ADVIORA_CONTACT.phoneHref} className="button phone-button" aria-label={`Call ADViora at ${ADVIORA_CONTACT.phone}`}>
+          Call {ADVIORA_CONTACT.phone} ↗
+        </a>
+        <button
+          type="button"
+          className="button whatsapp"
+          onClick={(e) => openChannelModal('whatsapp', e.currentTarget)}
+          aria-label="Chat with ADViora on WhatsApp"
+        >
+          Chat on WhatsApp ↗
+        </button>
+        <button
+          type="button"
+          className="button email-button"
+          onClick={(e) => openChannelModal('email', e.currentTarget)}
+          aria-label="Email ADViora Consulting"
+        >
+          Email ADViora ↗
+        </button>
+      </div>
+      <div className="direct-contact-meta">
+        <span>
+          Phone: <a href={ADVIORA_CONTACT.phoneHref}><strong>{ADVIORA_CONTACT.phone}</strong></a>
+        </span>
+        <span className="meta-separator">·</span>
+        <span>
+          Email: <a href={ADVIORA_CONTACT.emailHref}><strong>{ADVIORA_CONTACT.email}</strong></a>
+        </span>
+        <span className="meta-separator">·</span>
+        <span>
+          WhatsApp: <a href={ADVIORA_CONTACT.whatsappBaseUrl} target="_blank" rel="noopener noreferrer"><strong>{ADVIORA_CONTACT.whatsappDisplay}</strong></a>
+        </span>
+      </div>
     </div>
   );
 }

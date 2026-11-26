@@ -32,10 +32,41 @@ export interface DivisionInfo {
   highlights?: string[];
 }
 
+export interface ConsultingPackage {
+  title: string;
+  deliverables: string;
+  prefillInterest: string;
+}
+
+export interface DeliveryLevel {
+  level: string;
+  title: string;
+  description: string;
+}
+
+export interface CourseCategory {
+  id: string;
+  name: string;
+  shortName: string;
+  courses: string[];
+}
+
+export interface ClientLogo {
+  name: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
 export const ADVIORA_CONTACT = {
-  whatsapp: '919945633771', // 9945633771 with India country code 91
-  whatsappDisplay: '+91 99456 33771',
+  phone: '+91 9945633771',
+  phoneHref: 'tel:+919945633771',
+  whatsapp: '919945633771',
+  whatsappDisplay: '+91 9945633771',
+  whatsappBaseUrl: 'https://wa.me/919945633771',
   email: 'kamalkv@gmail.com',
+  emailHref: 'mailto:kamalkv@gmail.com',
   defaultWhatsAppMessage: 'Hello ADViora, I would like to enquire about your services.',
   defaultEmailSubject: 'ADViora service enquiry',
 };
@@ -82,78 +113,439 @@ Goals / Message:
 ${fields.message}`;
 }
 
+export const ALLOWED_INTERESTS = [
+  'Business transformation',
+  'ITSM / AI / digital transformation',
+  'Professional training',
+] as const;
 
+export type InterestArea = (typeof ALLOWED_INTERESTS)[number];
 
-export const DIVISIONS: DivisionInfo[] = [
+// Four Business Verticals
+export interface BusinessVertical {
+  id: string;
+  number: string;
+  title: string;
+  navLabel: string;
+  summary: string;
+  route: string;
+  emblem: string;
+  photo: string;
+  photoAlt: string;
+  prefillInterest: InterestArea;
+  services: string[];
+}
+
+export const BUSINESS_VERTICALS: BusinessVertical[] = [
   {
-    id: 'digital',
-    number: '',
-    title: 'ADViora Digital',
-    label: 'Business & technology',
+    id: 'consulting-advisory',
+    number: '01',
+    title: 'Consulting & Advisory',
+    navLabel: 'Consulting & Advisory',
+    summary:
+      'ITSM, ITIL, ISO, transformation and governance consulting to strengthen IT operating models and service performance.',
+    route: '/consulting-advisory',
+    emblem: '◈',
+    photo: '/images/consulting.webp',
+    photoAlt: 'Consultants working with leadership on IT operating models',
+    prefillInterest: 'Business transformation',
+    services: [
+      'ITSM and ITIL maturity assessments',
+      'IT operating model design',
+      'IT process consulting and optimisation',
+      'ISO 20000 implementation advisory',
+      'IT governance and service assurance',
+      'ServiceNow and ITSM tool assessments',
+      'Service transition and transformation',
+      'NOC governance and operational excellence',
+      'Continual improvement programmes',
+    ],
+  },
+  {
+    id: 'technology-solutions',
+    number: '02',
+    title: 'Technology & Digital Solutions',
+    navLabel: 'Technology Solutions',
+    summary:
+      'AI, ServiceNow, automation, cloud and SRE solutions designed to modernise IT environments and accelerate digital execution.',
+    route: '/technology-solutions',
     emblem: '▦',
     photo: '/images/technology.webp',
-    photoAlt: 'Laptop displaying code in a workspace',
-    photoLabel: 'Strategy meets technology',
-    description: 'Align strategy, processes and technology to navigate change and build lasting capability.',
-    tags: ['ITSM', 'Artificial intelligence', 'Digital transformation', 'Business transformation', 'Professional training'],
-    route: '/digital',
-    ctaText: 'Explore ADViora Digital',
-    highlights: [
-      'Business priorities & transformation planning',
-      'Process and operating-model improvement',
-      'ITSM, AI & modern digital solutions',
-      'Change readiness & organizational capability',
+    photoAlt: 'Developers and engineers configuring cloud and automation platforms',
+    prefillInterest: 'ITSM / AI / digital transformation',
+    services: [
+      'Artificial Intelligence and Generative AI adoption',
+      'AI-enabled IT service management',
+      'ServiceNow consulting and optimisation',
+      'IT automation and workflow improvement',
+      'AIOps and predictive analytics',
+      'DevOps and platform engineering',
+      'Site Reliability Engineering (SRE)',
+      'Cloud and infrastructure transformation',
+      'Technology strategy and solution advisory',
+    ],
+  },
+  {
+    id: 'academy-training',
+    number: '03',
+    title: 'Professional Academy & Training',
+    navLabel: 'Academy & Training',
+    summary:
+      'Practical, industry-relevant training in IT service management, enterprise platforms, AI, governance and modern operations.',
+    route: '/academy-training',
+    emblem: '❖',
+    photo: '/images/training.webp',
+    photoAlt: 'Professional learners engaging in an interactive workshop',
+    prefillInterest: 'Professional training',
+    services: [
+      'ITIL and IT Service Management',
+      'ServiceNow and enterprise platforms',
+      'AI, Generative AI and Copilot',
+      'ISO standards and management systems',
+      'Agile, Scrum and project management',
+      'DevOps, SRE and AIOps',
+      'Cloud, cybersecurity and data',
+      'Corporate and customised technology training',
+    ],
+  },
+  {
+    id: 'enterprise-solutions',
+    number: '04',
+    title: 'Enterprise Capability Development',
+    navLabel: 'Enterprise Solutions',
+    summary:
+      'Workforce upskilling, leadership development, fresh-graduate enablement and change management to build sustainable enterprise capability.',
+    route: '/enterprise-solutions',
+    emblem: '⬡',
+    photo: '/images/consulting.webp',
+    photoAlt: 'Enterprise leaders aligning workforce capability and change initiatives',
+    prefillInterest: 'Professional training',
+    services: [
+      'Workforce upskilling and reskilling',
+      'IT leadership development',
+      'Technology awareness programmes',
+      'Graduate and fresher employability training',
+      'ITSM service mindset development',
+      'Operational excellence workshops',
+      'Change management and organisational readiness',
+      'Learning needs analysis and capability roadmaps',
     ],
   },
 ];
 
-export const DIGITAL_CAPABILITIES = [
-  {
-    number: '01',
-    category: 'TRANSFORM',
-    title: 'Business transformation',
-    description: 'Connect your priorities, processes and operating model to a clear direction for change.',
-  },
-  {
-    number: '02',
-    category: 'SIMPLIFY',
-    title: 'IT service management',
-    description: 'Improve how IT services are designed, delivered and supported across your organization.',
-  },
-  {
-    number: '03',
-    category: 'ENABLE',
-    title: 'AI & digital solutions',
-    description: 'Identify practical opportunities for AI, automation and digital ways of working.',
-  },
-  {
-    number: '04',
-    category: 'DEVELOP',
-    title: 'Professional training',
-    description: 'Help teams apply new knowledge and build confidence through focused learning.',
-  },
-];
+// Preserved for backwards compatibility with existing components
+export const DIVISIONS: DivisionInfo[] = BUSINESS_VERTICALS.map((v) => ({
+  id: v.id,
+  number: v.number,
+  title: v.title,
+  label: v.navLabel,
+  emblem: v.emblem,
+  photo: v.photo,
+  photoAlt: v.photoAlt,
+  photoLabel: v.title,
+  description: v.summary,
+  tags: v.services.slice(0, 5),
+  route: v.route,
+  ctaText: `Explore ${v.navLabel}`,
+  highlights: v.services.slice(0, 4),
+}));
 
-export const PROCESS_STEPS = [
+export const DIGITAL_CAPABILITIES = BUSINESS_VERTICALS.map((v) => ({
+  number: v.number,
+  category: v.navLabel.toUpperCase(),
+  title: v.title,
+  description: v.summary,
+}));
+
+// Approach Steps (Assess -> Design -> Implement -> Optimise)
+export const APPROACH_STEPS = [
   {
     step: '01',
-    title: 'Understand',
-    description: 'Start with your goals, your context and the challenges that matter.',
+    title: 'Assess',
+    description: 'Understand the current environment, maturity, gaps, business priorities and opportunities.',
   },
   {
     step: '02',
-    title: 'Shape the approach',
-    description: 'Define the right direction, priorities and support for your journey.',
+    title: 'Design',
+    description: 'Develop a practical roadmap, target operating model, solution architecture or learning programme.',
   },
   {
     step: '03',
-    title: 'Put it into practice',
-    description: 'Bring the plan to life through consulting, technology or training.',
+    title: 'Implement',
+    description: 'Support execution through consulting, technology enablement, process improvement and training.',
   },
   {
     step: '04',
-    title: 'Keep progressing',
-    description: 'Review what’s working, refine the approach and build on your progress.',
+    title: 'Optimise',
+    description: 'Measure outcomes, identify improvements and build sustainable organisational capabilities.',
+  },
+];
+
+// Preserved for backwards compatibility
+export const PROCESS_STEPS = APPROACH_STEPS;
+
+// Why choose ADViora (6 selling points)
+export const WHY_CHOOSE_ADVIORA = [
+  {
+    title: 'Practitioner-led expertise',
+    description: 'Practical knowledge of enterprise IT environments and operational challenges.',
+    icon: '👤',
+  },
+  {
+    title: 'Business-focused solutions',
+    description: 'Technology and processes aligned to business objectives.',
+    icon: '🎯',
+  },
+  {
+    title: 'Integrated capabilities',
+    description: 'Consulting, technology and training under one umbrella.',
+    icon: '🔄',
+  },
+  {
+    title: 'Customised engagements',
+    description: 'Solutions designed around the organisation’s actual requirements.',
+    icon: '⚙️',
+  },
+  {
+    title: 'Industry-relevant learning',
+    description: 'Practical training using real-world scenarios, exercises and case studies.',
+    icon: '📚',
+  },
+  {
+    title: 'Flexible delivery',
+    description: 'Onsite, virtual, classroom and hybrid engagement models.',
+    icon: '🌐',
+  },
+];
+
+// Delivery Levels (Awareness, Practitioner, Certification preparation)
+export const DELIVERY_LEVELS: DeliveryLevel[] = [
+  {
+    level: 'Awareness',
+    title: 'Introductory & Executive',
+    description: 'Introductory workshops, business awareness and foundational learning.',
+  },
+  {
+    level: 'Practitioner',
+    title: 'Hands-On & Applied',
+    description: 'Hands-on training, exercises, case studies and tool demonstrations.',
+  },
+  {
+    level: 'Certification preparation',
+    title: 'Structured Exam Preparation',
+    description: 'Structured preparation for relevant external examinations.',
+  },
+];
+
+// Consulting Packages (Other consulting engagements we offer - 7 packages)
+export const CONSULTING_PACKAGES: ConsultingPackage[] = [
+  {
+    title: 'ITSM Health Check',
+    deliverables: 'Current-state assessment, gaps and improvement roadmap.',
+    prefillInterest: 'Business transformation',
+  },
+  {
+    title: 'ITIL Maturity Assessment',
+    deliverables: 'Process maturity scoring, benchmarking and recommendations.',
+    prefillInterest: 'Business transformation',
+  },
+  {
+    title: 'ServiceNow Optimisation',
+    deliverables: 'Configuration, process and adoption gap assessment.',
+    prefillInterest: 'Business transformation',
+  },
+  {
+    title: 'ISO 20000 Readiness',
+    deliverables: 'Gap assessment, documentation and implementation roadmap.',
+    prefillInterest: 'Business transformation',
+  },
+  {
+    title: 'IT Operations Excellence',
+    deliverables: 'NOC assessment, incident reduction and operational improvements.',
+    prefillInterest: 'Business transformation',
+  },
+  {
+    title: 'AI Readiness Assessment',
+    deliverables: 'AI opportunity identification and adoption roadmap.',
+    prefillInterest: 'Business transformation',
+  },
+  {
+    title: 'ITSM Transformation',
+    deliverables: 'Target operating model, process redesign and implementation support.',
+    prefillInterest: 'Business transformation',
+  },
+];
+
+// Training Catalogue (6 categories)
+export const TRAINING_CATEGORIES: CourseCategory[] = [
+  {
+    id: 'itsm-itil',
+    name: 'IT Service Management & ITIL',
+    shortName: 'ITSM & ITIL',
+    courses: [
+      'ITIL Foundation and advanced learning pathways',
+      'ITIL 4 and ITIL Version 5',
+      'IT Service Management Foundation',
+      'Incident, Problem and Change Management',
+      'Service Request and Knowledge Management',
+      'Service Catalogue and CMDB',
+      'Service Transition and Release Management',
+      'Service Desk and Service Operations',
+      'ITSM Maturity Assessment',
+      'Experience Level Agreements (XLA)',
+      'Business Relationship Management (BRM)',
+    ],
+  },
+  {
+    id: 'iso-governance',
+    name: 'ISO Standards & Governance',
+    shortName: 'ISO & Governance',
+    courses: [
+      'ISO/IEC 20000-1 – IT Service Management',
+      'ISO/IEC 27001 – Information Security Management',
+      'ISO 9001 – Quality Management',
+      'ISO 22301 – Business Continuity Management',
+      'ISO/IEC 42001 – AI Management Systems',
+      'ISO 14001 – Environmental Management',
+      'ISO 45001 – Occupational Health and Safety',
+      'ISO 31000 – Risk Management',
+      'ISO awareness and implementation workshops',
+      'Internal audit and management system training',
+    ],
+  },
+  {
+    id: 'ai-emerging-tech',
+    name: 'Artificial Intelligence & Emerging Technologies',
+    shortName: 'AI & Emerging Tech',
+    courses: [
+      'Generative AI for business professionals',
+      'ChatGPT for business productivity',
+      'Microsoft Copilot and workplace productivity',
+      'AI for IT Service Management',
+      'AI-powered Incident Management',
+      'Prompt Engineering',
+      'Agentic AI awareness and applications',
+      'AI Governance and Responsible AI',
+      'Machine Learning fundamentals',
+      'Data Analytics and Business Intelligence',
+    ],
+  },
+  {
+    id: 'agile-devops-ops',
+    name: 'Agile, DevOps & Modern IT Operations',
+    shortName: 'Agile & DevOps',
+    courses: [
+      'Agile Foundation',
+      'Scrum Master and Product Owner',
+      'DevOps Foundation',
+      'Site Reliability Engineering (SRE)',
+      'AIOps Foundation',
+      'Observability and Monitoring',
+      'Platform Engineering',
+      'CI/CD fundamentals',
+      'Change Management',
+      'Lean and Six Sigma fundamentals',
+    ],
+  },
+  {
+    id: 'enterprise-platforms',
+    name: 'Enterprise Technology & Platforms',
+    shortName: 'Platforms & Cloud',
+    courses: [
+      'ServiceNow Foundation and Administration',
+      'ServiceNow ITSM modules',
+      'ServiceNow Incident and Problem Management',
+      'ServiceNow Change Management',
+      'ServiceNow CMDB and Knowledge Management',
+      'ServiceNow Predictive Intelligence',
+      'Microsoft Azure fundamentals',
+      'Cloud Computing fundamentals',
+      'Cybersecurity awareness',
+      'IT Operations and NOC management',
+    ],
+  },
+  {
+    id: 'project-management-business',
+    name: 'Project Management & Business Skills',
+    shortName: 'Project & Business Skills',
+    courses: [
+      'PRINCE2 Foundation and Practitioner',
+      'Project Management fundamentals',
+      'IT Project Management',
+      'Business Analysis',
+      'Business Relationship Management',
+      'Change Management',
+      'IT Leadership and Management',
+      'Communication and Stakeholder Management',
+      'Service Management for Freshers',
+    ],
+  },
+];
+
+// Client Logos (9 organisations)
+export const CLIENT_LOGOS: ClientLogo[] = [
+  {
+    name: 'Accenture',
+    src: '/images/clients/accenture.png',
+    alt: 'Accenture logo',
+    width: 3840,
+    height: 2160,
+  },
+  {
+    name: 'HP',
+    src: '/images/clients/hp.png',
+    alt: 'HP logo',
+    width: 1280,
+    height: 1280,
+  },
+  {
+    name: 'SK Finance',
+    src: '/images/clients/sk-finance.png',
+    alt: 'SK Finance logo',
+    width: 262,
+    height: 120,
+  },
+  {
+    name: 'Bausch Health',
+    src: '/images/clients/bausch-health.png',
+    alt: 'Bausch Health logo',
+    width: 565,
+    height: 448,
+  },
+  {
+    name: 'TC Energy',
+    src: '/images/clients/tc-energy.png',
+    alt: 'TC Energy logo',
+    width: 172,
+    height: 67,
+  },
+  {
+    name: 'Dyson',
+    src: '/images/clients/dyson.png',
+    alt: 'Dyson logo',
+    width: 498,
+    height: 400,
+  },
+  {
+    name: 'SARS',
+    src: '/images/clients/sars.png',
+    alt: 'SARS logo',
+    width: 225,
+    height: 180,
+  },
+  {
+    name: 'Birlasoft',
+    src: '/images/clients/birlasoft.png',
+    alt: 'Birlasoft logo',
+    width: 297,
+    height: 130,
+  },
+  {
+    name: 'MTN',
+    src: '/images/clients/mtn.jpeg',
+    alt: 'MTN logo',
+    width: 498,
+    height: 399,
   },
 ];
 
@@ -177,90 +569,198 @@ export const BRAND_MEANINGS = [
 
 export const FAQ_ITEMS = [
   {
-    question: 'What does ADViora Digital help with?',
-    answer: 'ADViora Digital supports business transformation, IT service management, AI and digital transformation, and professional training.',
+    question: 'What does ADViora do?',
+    answer:
+      'ADViora is a technology consulting, digital transformation and professional learning organisation. We help businesses improve performance, modernise technology environments, optimise IT operations and develop future-ready capabilities.',
   },
   {
-    question: 'Can we discuss our organization’s requirements?',
-    answer: 'Yes. Share your goals and current challenges through the enquiry options so the scope and next steps can be discussed.',
+    question: 'What are ADViora’s core business verticals?',
+    answer:
+      'ADViora operates across four integrated verticals: Consulting & Advisory (ITSM, ITIL, operating models, ISO 20000), Technology & Digital Solutions (AI, ServiceNow, automation, cloud, SRE), Professional Academy & Training (enterprise certifications and technology courses), and Enterprise Capability Development (workforce upskilling and organisational change).',
   },
   {
-    question: 'Does ADViora offer professional training?',
-    answer: 'Yes. Professional and technology-focused training remains part of ADViora Digital, with learning needs and scope discussed for each engagement.',
+    question: 'How are professional training programmes structured and delivered?',
+    answer:
+      'Training is offered across three distinct delivery tiers: Awareness workshops (foundational executive learning), Practitioner training (hands-on exercises, real-world scenarios and tool demonstrations), and Certification preparation (structured preparation for external examinations). Engagements are available onsite, virtually or in hybrid formats.',
+  },
+  {
+    question: 'Can we engage ADViora for targeted consulting or readiness assessments?',
+    answer:
+      'Yes. ADViora provides structured consulting packages including ITSM Health Checks, ITIL Maturity Assessments, ServiceNow Optimisation, ISO 20000 Readiness, IT Operations Excellence, AI Readiness Assessments and ITSM Transformation.',
+  },
+  {
+    question: 'What is ADViora’s delivery methodology?',
+    answer:
+      'We follow a proven four-step process: Assess (evaluate current environment and maturity gaps), Design (develop target operating models and roadmaps), Implement (support execution, enablement and training), and Optimise (measure outcomes and build sustainable capability).',
   },
   {
     question: 'What does the name ADViora mean?',
-    answer: 'ADViora is a coined brand name inspired conceptually by Advance, Vision and Aura: progress, strategic thinking, and influence, presence and excellence. It is a brand meaning, not an acronym.',
+    answer:
+      'ADViora is a coined brand name conceptually inspired by Advance, Vision and Aura: driving purposeful progress, strategic clarity, and sustainable organizational excellence.',
   },
 ];
 
+// Preserved for legacy routes/data compatibility
 export const SERVICES_DATA: Record<string, ServiceDetail> = {
-  'business-transformation': {
-    slug: 'business-transformation',
-    route: '/business-transformation',
+  'consulting-advisory': {
+    slug: 'consulting-advisory',
+    route: '/consulting-advisory',
     badge: 'ADViora Digital · 01',
-    title: 'Business transformation',
+    title: 'Consulting & Advisory',
     subtitle: 'ADViora Consulting',
-    description: 'Connect business priorities with the people, processes and ways of working needed to move forward. Begin with your current challenges and shape a practical direction for change.',
+    description:
+      'ITSM, ITIL, ISO, transformation and governance consulting to strengthen IT operating models and service performance.',
     coverImage: '/images/consulting.webp',
-    coverAlt: 'Professionals collaborating around a table',
-    caption: 'Business transformation',
+    coverAlt: 'Consulting team analyzing IT operating model',
+    caption: 'Consulting & Advisory',
     eyebrow: 'ADViora Consulting',
     bulletPoints: [
-      'Business priorities and transformation planning',
-      'Process and operating-model improvement',
-      'Change readiness and organizational capability',
+      'ITSM and ITIL maturity assessments',
+      'IT operating model design & process optimisation',
+      'ISO 20000 implementation advisory & IT governance',
+      'ServiceNow and ITSM tool assessments',
+      'NOC governance and operational excellence',
     ],
-    ctaText: 'Discuss business transformation',
+    ctaText: 'Discuss consulting requirements',
     servicePrefill: 'Business transformation',
-    relatedSlugs: ['technology-digital', 'professional-training'],
+    relatedSlugs: ['technology-solutions', 'academy-training', 'enterprise-solutions'],
+  },
+  'business-transformation': {
+    slug: 'business-transformation',
+    route: '/consulting-advisory',
+    badge: 'ADViora Digital · 01',
+    title: 'Consulting & Advisory',
+    subtitle: 'ADViora Consulting',
+    description:
+      'ITSM, ITIL, ISO, transformation and governance consulting to strengthen IT operating models and service performance.',
+    coverImage: '/images/consulting.webp',
+    coverAlt: 'Consulting team analyzing IT operating model',
+    caption: 'Consulting & Advisory',
+    eyebrow: 'ADViora Consulting',
+    bulletPoints: [
+      'ITSM and ITIL maturity assessments',
+      'IT operating model design & process optimisation',
+      'ISO 20000 implementation advisory & IT governance',
+      'ServiceNow and ITSM tool assessments',
+      'NOC governance and operational excellence',
+    ],
+    ctaText: 'Discuss consulting requirements',
+    servicePrefill: 'Business transformation',
+    relatedSlugs: ['technology-solutions', 'academy-training', 'enterprise-solutions'],
+  },
+  'technology-solutions': {
+    slug: 'technology-solutions',
+    route: '/technology-solutions',
+    badge: 'ADViora Digital · 02',
+    title: 'Technology & Digital Solutions',
+    subtitle: 'ADViora Consulting',
+    description:
+      'AI, ServiceNow, automation, cloud and SRE solutions designed to modernise IT environments and accelerate digital execution.',
+    coverImage: '/images/technology.webp',
+    coverAlt: 'Engineers working on cloud and automation platforms',
+    caption: 'Technology & Digital Solutions',
+    eyebrow: 'ADViora Consulting',
+    bulletPoints: [
+      'Artificial Intelligence and Generative AI adoption',
+      'AI-enabled IT service management & AIOps',
+      'ServiceNow consulting and optimisation',
+      'IT automation, DevOps and platform engineering',
+      'Cloud and infrastructure transformation',
+    ],
+    ctaText: 'Discuss technology solutions',
+    servicePrefill: 'ITSM / AI / digital transformation',
+    relatedSlugs: ['consulting-advisory', 'academy-training', 'enterprise-solutions'],
   },
   'technology-digital': {
     slug: 'technology-digital',
-    route: '/technology-digital',
+    route: '/technology-solutions',
     badge: 'ADViora Digital · 02',
-    title: 'Technology & digital transformation',
+    title: 'Technology & Digital Solutions',
     subtitle: 'ADViora Consulting',
-    description: 'Make technology serve your organization’s goals. Explore IT service management, practical AI opportunities and digital transformation in the context of your business.',
+    description:
+      'AI, ServiceNow, automation, cloud and SRE solutions designed to modernise IT environments and accelerate digital execution.',
     coverImage: '/images/technology.webp',
-    coverAlt: 'Laptop showing software code in a workspace',
-    caption: 'Technology & digital',
+    coverAlt: 'Engineers working on cloud and automation platforms',
+    caption: 'Technology & Digital Solutions',
     eyebrow: 'ADViora Consulting',
     bulletPoints: [
-      'ITSM: service design, delivery and improvement',
-      'AI and automation opportunity assessment',
-      'Digital ways of working and technology adoption',
+      'Artificial Intelligence and Generative AI adoption',
+      'AI-enabled IT service management & AIOps',
+      'ServiceNow consulting and optimisation',
+      'IT automation, DevOps and platform engineering',
+      'Cloud and infrastructure transformation',
     ],
-    ctaText: 'Discuss technology requirements',
+    ctaText: 'Discuss technology solutions',
     servicePrefill: 'ITSM / AI / digital transformation',
-    relatedSlugs: ['business-transformation', 'professional-training'],
+    relatedSlugs: ['consulting-advisory', 'academy-training', 'enterprise-solutions'],
+  },
+  'academy-training': {
+    slug: 'academy-training',
+    route: '/academy-training',
+    badge: 'ADViora Digital · 03',
+    title: 'Professional Academy & Training',
+    subtitle: 'ADViora Consulting',
+    description:
+      'Practical, industry-relevant training in IT service management, enterprise platforms, AI, governance and modern operations.',
+    coverImage: '/images/training.webp',
+    coverAlt: 'Learners taking notes in an enterprise training workshop',
+    caption: 'Professional Training Catalogue',
+    eyebrow: 'ADViora Consulting',
+    bulletPoints: [
+      'ITIL, ITSM and enterprise platform pathways',
+      'AI, Generative AI and Microsoft Copilot',
+      'ISO standards and management systems',
+      'Agile, Scrum, DevOps, SRE and AIOps',
+      'Three delivery levels: Awareness, Practitioner, Certification prep',
+    ],
+    ctaText: 'Explore training programmes',
+    servicePrefill: 'Professional training',
+    relatedSlugs: ['consulting-advisory', 'technology-solutions', 'enterprise-solutions'],
   },
   'professional-training': {
     slug: 'professional-training',
-    route: '/professional-training',
+    route: '/academy-training',
     badge: 'ADViora Digital · 03',
-    title: 'Professional training & development',
+    title: 'Professional Academy & Training',
     subtitle: 'ADViora Consulting',
-    description: 'Help individuals and teams develop useful skills and apply them with confidence. Discuss learning needs across business, technology and professional practice.',
+    description:
+      'Practical, industry-relevant training in IT service management, enterprise platforms, AI, governance and modern operations.',
     coverImage: '/images/training.webp',
-    coverAlt: 'Attendees taking notes at a professional workshop',
-    caption: 'Professional development',
+    coverAlt: 'Learners taking notes in an enterprise training workshop',
+    caption: 'Professional Training Catalogue',
     eyebrow: 'ADViora Consulting',
     bulletPoints: [
-      'Learning needs and programme planning',
-      'Professional and technology-focused training',
-      'Practical application and capability development',
+      'ITIL, ITSM and enterprise platform pathways',
+      'AI, Generative AI and Microsoft Copilot',
+      'ISO standards and management systems',
+      'Agile, Scrum, DevOps, SRE and AIOps',
+      'Three delivery levels: Awareness, Practitioner, Certification prep',
     ],
-    ctaText: 'Discuss a training programme',
+    ctaText: 'Explore training programmes',
     servicePrefill: 'Professional training',
-    relatedSlugs: ['business-transformation', 'technology-digital'],
+    relatedSlugs: ['consulting-advisory', 'technology-solutions', 'enterprise-solutions'],
+  },
+  'enterprise-solutions': {
+    slug: 'enterprise-solutions',
+    route: '/enterprise-solutions',
+    badge: 'ADViora Digital · 04',
+    title: 'Enterprise Capability Development',
+    subtitle: 'ADViora Consulting',
+    description:
+      'Workforce upskilling, leadership development, fresh-graduate enablement and change management to build sustainable enterprise capability.',
+    coverImage: '/images/consulting.webp',
+    coverAlt: 'Enterprise team in an operational excellence workshop',
+    caption: 'Enterprise Capability Development',
+    eyebrow: 'ADViora Consulting',
+    bulletPoints: [
+      'Workforce upskilling and reskilling programmes',
+      'IT leadership and service mindset development',
+      'Graduate and fresher employability training',
+      'Operational excellence and change management',
+      'Learning needs analysis and capability roadmaps',
+    ],
+    ctaText: 'Discuss enterprise capability',
+    servicePrefill: 'Professional training',
+    relatedSlugs: ['consulting-advisory', 'technology-solutions', 'academy-training'],
   },
 };
-
-export const ALLOWED_INTERESTS = [
-  'Business transformation',
-  'ITSM / AI / digital transformation',
-  'Professional training',
-] as const;
-
-export type InterestArea = typeof ALLOWED_INTERESTS[number];
