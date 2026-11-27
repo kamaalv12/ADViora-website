@@ -5,7 +5,7 @@ export function BrandMeaning() {
   return (
     <section className="section wrap story" id="about">
       <div>
-        <span className="eyebrow">The meaning behind ADViora</span>
+        <span className="eyebrow">The meaning behind Adviora</span>
         <h2>
           A name with
           <br />
@@ -19,7 +19,7 @@ export function BrandMeaning() {
           Performance.”
         </blockquote>
         <p>
-          ADViora is a coined name inspired conceptually by Advance, Vision and Aura. It is a brand
+          Adviora is a coined name inspired conceptually by Advance, Vision and Aura. It is a brand
           meaning, not an acronym—a shared belief in progress, strategic thinking and excellence.
         </p>
       </div>

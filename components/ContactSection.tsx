@@ -7,7 +7,7 @@ export function ContactSection() {
     <section className="section contact-section" id="contact">
       <div className="wrap contact-grid">
         <div>
-          <span className="eyebrow">Connect With ADViora</span>
+          <span className="eyebrow">Connect With Adviora</span>
           <h2>
             LET’S GET
             <br />

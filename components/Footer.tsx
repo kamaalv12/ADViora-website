@@ -8,10 +8,10 @@ export function Footer() {
     <footer>
       <div className="wrap footer-top">
         <div className="footer-brand-col">
-          <Link href="/" className="brand-link" aria-label="ADViora Consulting home">
+          <Link href="/" className="brand-link" aria-label="Adviora Consulting home">
             <Image
               src="/images/adviora-logo.webp"
-              alt="ADViora Consulting"
+              alt="Adviora Consulting"
               width={802}
               height={185}
               className="brand-logo-img"
@@ -52,8 +52,8 @@ export function Footer() {
           <div className="footer-group">
             <span className="footer-group-title">Company &amp; Connect</span>
             <div className="footer-links">
-              <Link href="/digital">ADViora Digital Overview</Link>
-              <Link href="/#about">About ADViora</Link>
+              <Link href="/digital">Adviora Digital Overview</Link>
+              <Link href="/#about">About Adviora</Link>
               <Link href="/#approach">Our Approach</Link>
               <Link href="/#engagements">Consulting Packages</Link>
               <Link href="/#contact">Get in Touch</Link>
@@ -63,7 +63,7 @@ export function Footer() {
       </div>
 
       <div className="wrap footer-bottom">
-        <span>© 2026 ADViora Consulting. All rights reserved.</span>
+        <span>© 2026 Adviora Consulting. All rights reserved.</span>
         <span>Advancing People, Organisations and Performance.</span>
       </div>
     </footer>

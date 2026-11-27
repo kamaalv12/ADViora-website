@@ -26,7 +26,6 @@ export function DivisionCard({ division }: { division: DivisionInfo }) {
           <ul className="division-highlights">
             {division.highlights.map((item, idx) => (
               <li key={idx}>
-                <span className="division-check" aria-hidden="true">✓</span>
                 <span>{item}</span>
               </li>
             ))}

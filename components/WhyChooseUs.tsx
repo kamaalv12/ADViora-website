@@ -6,7 +6,7 @@ export function WhyChooseUs() {
     <section className="section wrap why-choose-section" id="why-choose">
       <div className="section-intro">
         <span className="eyebrow">Our Distinct Advantage</span>
-        <h2>Why choose ADViora?</h2>
+        <h2>Why choose Adviora?</h2>
         <p>
           We combine seasoned enterprise practitioner experience with practical execution frameworks to deliver lasting business value.
         </p>

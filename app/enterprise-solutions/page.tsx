@@ -9,11 +9,11 @@ import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 const vertical = BUSINESS_VERTICALS.find((v) => v.id === 'enterprise-solutions')!;
 
 export const metadata: Metadata = {
-  title: 'Enterprise Capability Development — Enterprise Solutions — ADViora Consulting',
+  title: 'Enterprise Capability Development — Enterprise Solutions — Adviora Consulting',
   description:
     'Workforce upskilling, leadership development, fresh-graduate employability training and change management to build sustainable enterprise capability.',
   openGraph: {
-    title: 'Enterprise Capability Development — Enterprise Solutions — ADViora Consulting',
+    title: 'Enterprise Capability Development — Enterprise Solutions — Adviora Consulting',
     description:
       'Workforce upskilling, leadership development, fresh-graduate employability training and change management to build sustainable enterprise capability.',
   },
@@ -26,7 +26,7 @@ export default function EnterpriseSolutionsPage() {
         <Link className="breadcrumb" href="/">
           ← Home
         </Link>
-        <span className="eyebrow">ADViora Consulting · 04</span>
+        <span className="eyebrow">Adviora Consulting · 04</span>
         <h1>Enterprise Capability Development</h1>
         <p>
           We help organisations build sustainable human and operational capabilities through targeted workforce upskilling, IT leadership programmes, graduate readiness and organisational change enablement.

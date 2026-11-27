@@ -138,7 +138,7 @@ export function ChannelModal() {
           ×
         </button>
 
-        <span className="eyebrow">ADViora · Direct contact</span>
+        <span className="eyebrow">Adviora · Direct contact</span>
         <h2 id="channel-dialog-title">{channelModal.title}</h2>
         <p id="channel-dialog-desc">{channelModal.description}</p>
 

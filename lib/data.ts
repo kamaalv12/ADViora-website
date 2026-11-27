@@ -67,8 +67,8 @@ export const ADVIORA_CONTACT = {
   whatsappBaseUrl: 'https://wa.me/919945633771',
   email: 'kamalkv@gmail.com',
   emailHref: 'mailto:kamalkv@gmail.com',
-  defaultWhatsAppMessage: 'Hello ADViora, I would like to enquire about your services.',
-  defaultEmailSubject: 'ADViora service enquiry',
+  defaultWhatsAppMessage: 'Hello Adviora, I would like to enquire about your services.',
+  defaultEmailSubject: 'Adviora service enquiry',
 };
 
 export function getWhatsAppUrl(customMessage?: string): string {
@@ -101,7 +101,7 @@ export function formatEnquiryPayload(fields: {
   interest: string;
   message: string;
 }): string {
-  return `Hello ADViora Consulting,
+  return `Hello Adviora Consulting,
 
 I would like to enquire about:
 Name: ${fields.name}
@@ -284,7 +284,7 @@ export const APPROACH_STEPS = [
 // Preserved for backwards compatibility
 export const PROCESS_STEPS = APPROACH_STEPS;
 
-// Why choose ADViora (6 selling points)
+// Why choose Adviora (6 selling points)
 export const WHY_CHOOSE_ADVIORA = [
   {
     title: 'Practitioner-led expertise',
@@ -569,14 +569,14 @@ export const BRAND_MEANINGS = [
 
 export const FAQ_ITEMS = [
   {
-    question: 'What does ADViora do?',
+    question: 'What does Adviora do?',
     answer:
-      'ADViora is a technology consulting, digital transformation and professional learning organisation. We help businesses improve performance, modernise technology environments, optimise IT operations and develop future-ready capabilities.',
+      'Adviora is a technology consulting, digital transformation and professional learning organisation. We help businesses improve performance, modernise technology environments, optimise IT operations and develop future-ready capabilities.',
   },
   {
-    question: 'What are ADViora’s core business verticals?',
+    question: 'What are Adviora’s core business verticals?',
     answer:
-      'ADViora operates across four integrated verticals: Consulting & Advisory (ITSM, ITIL, operating models, ISO 20000), Technology & Digital Solutions (AI, ServiceNow, automation, cloud, SRE), Professional Academy & Training (enterprise certifications and technology courses), and Enterprise Capability Development (workforce upskilling and organisational change).',
+      'Adviora operates across four integrated verticals: Consulting & Advisory (ITSM, ITIL, operating models, ISO 20000), Technology & Digital Solutions (AI, ServiceNow, automation, cloud, SRE), Professional Academy & Training (enterprise certifications and technology courses), and Enterprise Capability Development (workforce upskilling and organisational change).',
   },
   {
     question: 'How are professional training programmes structured and delivered?',
@@ -584,19 +584,19 @@ export const FAQ_ITEMS = [
       'Training is offered across three distinct delivery tiers: Awareness workshops (foundational executive learning), Practitioner training (hands-on exercises, real-world scenarios and tool demonstrations), and Certification preparation (structured preparation for external examinations). Engagements are available onsite, virtually or in hybrid formats.',
   },
   {
-    question: 'Can we engage ADViora for targeted consulting or readiness assessments?',
+    question: 'Can we engage Adviora for targeted consulting or readiness assessments?',
     answer:
-      'Yes. ADViora provides structured consulting packages including ITSM Health Checks, ITIL Maturity Assessments, ServiceNow Optimisation, ISO 20000 Readiness, IT Operations Excellence, AI Readiness Assessments and ITSM Transformation.',
+      'Yes. Adviora provides structured consulting packages including ITSM Health Checks, ITIL Maturity Assessments, ServiceNow Optimisation, ISO 20000 Readiness, IT Operations Excellence, AI Readiness Assessments and ITSM Transformation.',
   },
   {
-    question: 'What is ADViora’s delivery methodology?',
+    question: 'What is Adviora’s delivery methodology?',
     answer:
       'We follow a proven four-step process: Assess (evaluate current environment and maturity gaps), Design (develop target operating models and roadmaps), Implement (support execution, enablement and training), and Optimise (measure outcomes and build sustainable capability).',
   },
   {
-    question: 'What does the name ADViora mean?',
+    question: 'What does the name Adviora mean?',
     answer:
-      'ADViora is a coined brand name conceptually inspired by Advance, Vision and Aura: driving purposeful progress, strategic clarity, and sustainable organizational excellence.',
+      'Adviora is a coined brand name conceptually inspired by Advance, Vision and Aura: driving purposeful progress, strategic clarity, and sustainable organizational excellence.',
   },
 ];
 
@@ -605,15 +605,15 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
   'consulting-advisory': {
     slug: 'consulting-advisory',
     route: '/consulting-advisory',
-    badge: 'ADViora Digital · 01',
+    badge: 'Adviora Digital · 01',
     title: 'Consulting & Advisory',
-    subtitle: 'ADViora Consulting',
+    subtitle: 'Adviora Consulting',
     description:
       'ITSM, ITIL, ISO, transformation and governance consulting to strengthen IT operating models and service performance.',
     coverImage: '/images/consulting.webp',
     coverAlt: 'Consulting team analyzing IT operating model',
     caption: 'Consulting & Advisory',
-    eyebrow: 'ADViora Consulting',
+    eyebrow: 'Adviora Consulting',
     bulletPoints: [
       'ITSM and ITIL maturity assessments',
       'IT operating model design & process optimisation',
@@ -628,15 +628,15 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
   'business-transformation': {
     slug: 'business-transformation',
     route: '/consulting-advisory',
-    badge: 'ADViora Digital · 01',
+    badge: 'Adviora Digital · 01',
     title: 'Consulting & Advisory',
-    subtitle: 'ADViora Consulting',
+    subtitle: 'Adviora Consulting',
     description:
       'ITSM, ITIL, ISO, transformation and governance consulting to strengthen IT operating models and service performance.',
     coverImage: '/images/consulting.webp',
     coverAlt: 'Consulting team analyzing IT operating model',
     caption: 'Consulting & Advisory',
-    eyebrow: 'ADViora Consulting',
+    eyebrow: 'Adviora Consulting',
     bulletPoints: [
       'ITSM and ITIL maturity assessments',
       'IT operating model design & process optimisation',
@@ -651,15 +651,15 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
   'technology-solutions': {
     slug: 'technology-solutions',
     route: '/technology-solutions',
-    badge: 'ADViora Digital · 02',
+    badge: 'Adviora Digital · 02',
     title: 'Technology & Digital Solutions',
-    subtitle: 'ADViora Consulting',
+    subtitle: 'Adviora Consulting',
     description:
       'AI, ServiceNow, automation, cloud and SRE solutions designed to modernise IT environments and accelerate digital execution.',
     coverImage: '/images/technology.webp',
     coverAlt: 'Engineers working on cloud and automation platforms',
     caption: 'Technology & Digital Solutions',
-    eyebrow: 'ADViora Consulting',
+    eyebrow: 'Adviora Consulting',
     bulletPoints: [
       'Artificial Intelligence and Generative AI adoption',
       'AI-enabled IT service management & AIOps',
@@ -674,15 +674,15 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
   'technology-digital': {
     slug: 'technology-digital',
     route: '/technology-solutions',
-    badge: 'ADViora Digital · 02',
+    badge: 'Adviora Digital · 02',
     title: 'Technology & Digital Solutions',
-    subtitle: 'ADViora Consulting',
+    subtitle: 'Adviora Consulting',
     description:
       'AI, ServiceNow, automation, cloud and SRE solutions designed to modernise IT environments and accelerate digital execution.',
     coverImage: '/images/technology.webp',
     coverAlt: 'Engineers working on cloud and automation platforms',
     caption: 'Technology & Digital Solutions',
-    eyebrow: 'ADViora Consulting',
+    eyebrow: 'Adviora Consulting',
     bulletPoints: [
       'Artificial Intelligence and Generative AI adoption',
       'AI-enabled IT service management & AIOps',
@@ -697,15 +697,15 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
   'academy-training': {
     slug: 'academy-training',
     route: '/academy-training',
-    badge: 'ADViora Digital · 03',
+    badge: 'Adviora Digital · 03',
     title: 'Professional Academy & Training',
-    subtitle: 'ADViora Consulting',
+    subtitle: 'Adviora Consulting',
     description:
       'Practical, industry-relevant training in IT service management, enterprise platforms, AI, governance and modern operations.',
     coverImage: '/images/training.webp',
     coverAlt: 'Learners taking notes in an enterprise training workshop',
     caption: 'Professional Training Catalogue',
-    eyebrow: 'ADViora Consulting',
+    eyebrow: 'Adviora Consulting',
     bulletPoints: [
       'ITIL, ITSM and enterprise platform pathways',
       'AI, Generative AI and Microsoft Copilot',
@@ -720,15 +720,15 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
   'professional-training': {
     slug: 'professional-training',
     route: '/academy-training',
-    badge: 'ADViora Digital · 03',
+    badge: 'Adviora Digital · 03',
     title: 'Professional Academy & Training',
-    subtitle: 'ADViora Consulting',
+    subtitle: 'Adviora Consulting',
     description:
       'Practical, industry-relevant training in IT service management, enterprise platforms, AI, governance and modern operations.',
     coverImage: '/images/training.webp',
     coverAlt: 'Learners taking notes in an enterprise training workshop',
     caption: 'Professional Training Catalogue',
-    eyebrow: 'ADViora Consulting',
+    eyebrow: 'Adviora Consulting',
     bulletPoints: [
       'ITIL, ITSM and enterprise platform pathways',
       'AI, Generative AI and Microsoft Copilot',
@@ -743,15 +743,15 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
   'enterprise-solutions': {
     slug: 'enterprise-solutions',
     route: '/enterprise-solutions',
-    badge: 'ADViora Digital · 04',
+    badge: 'Adviora Digital · 04',
     title: 'Enterprise Capability Development',
-    subtitle: 'ADViora Consulting',
+    subtitle: 'Adviora Consulting',
     description:
       'Workforce upskilling, leadership development, fresh-graduate enablement and change management to build sustainable enterprise capability.',
     coverImage: '/images/consulting.webp',
     coverAlt: 'Enterprise team in an operational excellence workshop',
     caption: 'Enterprise Capability Development',
-    eyebrow: 'ADViora Consulting',
+    eyebrow: 'Adviora Consulting',
     bulletPoints: [
       'Workforce upskilling and reskilling programmes',
       'IT leadership and service mindset development',

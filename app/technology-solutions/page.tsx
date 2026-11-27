@@ -9,11 +9,11 @@ import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 const vertical = BUSINESS_VERTICALS.find((v) => v.id === 'technology-solutions')!;
 
 export const metadata: Metadata = {
-  title: 'Technology & Digital Solutions — ADViora Consulting',
+  title: 'Technology & Digital Solutions — Adviora Consulting',
   description:
     'AI, ServiceNow, automation, cloud and SRE solutions designed to modernise IT environments and accelerate digital execution.',
   openGraph: {
-    title: 'Technology & Digital Solutions — ADViora Consulting',
+    title: 'Technology & Digital Solutions — Adviora Consulting',
     description:
       'AI, ServiceNow, automation, cloud and SRE solutions designed to modernise IT environments and accelerate digital execution.',
   },
@@ -26,7 +26,7 @@ export default function TechnologySolutionsPage() {
         <Link className="breadcrumb" href="/">
           ← Home
         </Link>
-        <span className="eyebrow">ADViora Consulting · 02</span>
+        <span className="eyebrow">Adviora Consulting · 02</span>
         <h1>Technology &amp; Digital Solutions</h1>
         <p>
           We deliver modern technology strategy, artificial intelligence enablement, ServiceNow optimisation and cloud automation to transform enterprise IT service management and operations.

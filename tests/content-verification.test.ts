@@ -15,7 +15,7 @@ import {
 import { ALLOWED_DIGITAL_INTERESTS } from '../server/validators/user.validator';
 import nextConfig from '../next.config';
 
-describe('ADViora Digital Content & Vertical Architecture Verification', () => {
+describe('Adviora Digital Content & Vertical Architecture Verification', () => {
   it('1. Has exactly 4 business verticals with documented routes and services', () => {
     assert.equal(BUSINESS_VERTICALS.length, 4);
 

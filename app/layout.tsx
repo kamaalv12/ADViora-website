@@ -10,9 +10,9 @@ import { ChannelModal } from '@/components/modals/ChannelModal';
 import { UtmCapture } from '@/components/UtmCapture';
 
 export const metadata: Metadata = {
-  title: 'ADViora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
+  title: 'Adviora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
   description:
-    'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+    'Adviora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -24,17 +24,17 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: 'ADViora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
+    title: 'Adviora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
     description:
-      'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
-    siteName: 'ADViora Consulting',
+      'Adviora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+    siteName: 'Adviora Consulting',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ADViora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
+    title: 'Adviora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
     description:
-      'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+      'Adviora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
   },
 };
 

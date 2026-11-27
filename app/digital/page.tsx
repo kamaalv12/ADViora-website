@@ -9,13 +9,13 @@ import { ContactSection } from '@/components/ContactSection';
 import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 
 export const metadata: Metadata = {
-  title: 'ADViora Digital — Technology Consulting, Digital Transformation & Learning',
+  title: 'Adviora Digital — Technology Consulting, Digital Transformation & Learning',
   description:
-    'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+    'Adviora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
   openGraph: {
-    title: 'ADViora Digital — Technology Consulting, Digital Transformation & Learning',
+    title: 'Adviora Digital — Technology Consulting, Digital Transformation & Learning',
     description:
-      'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+      'Adviora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
   },
 };
 
@@ -27,7 +27,7 @@ export default function DigitalPage() {
           ← Home
         </Link>
         <span className="eyebrow">Integrated Capabilities</span>
-        <h1>ADViora Digital</h1>
+        <h1>Adviora Digital</h1>
         <p>
           We bring together industry experience, proven frameworks, modern technology and practical learning approaches to help organisations translate business challenges into measurable outcomes.
         </p>
@@ -59,7 +59,7 @@ export default function DigitalPage() {
       {/* Approach */}
       <ApproachSection />
 
-      {/* Why Choose ADViora */}
+      {/* Why Choose Adviora */}
       <WhyChooseUs />
 
       <ContactSection />

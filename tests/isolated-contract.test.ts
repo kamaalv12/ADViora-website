@@ -40,7 +40,7 @@ class MockSessionStorage {
   }
 }
 
-describe('ADViora Backend & UTM Isolated Contract Tests', () => {
+describe('Adviora Backend & UTM Isolated Contract Tests', () => {
   beforeEach(() => {
     // Setup global window and sessionStorage for UTM tests
     (global as any).sessionStorage = new MockSessionStorage();
@@ -137,7 +137,7 @@ describe('ADViora Backend & UTM Isolated Contract Tests', () => {
       const consulting = SignupSchema.shape.interest.safeParse('Consulting');
       assert.equal(consulting.success, false);
 
-      const academy = SignupSchema.shape.interest.safeParse('ADViora Academy');
+      const academy = SignupSchema.shape.interest.safeParse('Adviora Academy');
       assert.equal(academy.success, false);
     });
   });

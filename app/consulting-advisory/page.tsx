@@ -10,11 +10,11 @@ import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 const vertical = BUSINESS_VERTICALS.find((v) => v.id === 'consulting-advisory')!;
 
 export const metadata: Metadata = {
-  title: 'Consulting & Advisory — ADViora Consulting',
+  title: 'Consulting & Advisory — Adviora Consulting',
   description:
     'ITSM, ITIL, ISO, transformation and governance consulting to strengthen IT operating models and service performance.',
   openGraph: {
-    title: 'Consulting & Advisory — ADViora Consulting',
+    title: 'Consulting & Advisory — Adviora Consulting',
     description:
       'ITSM, ITIL, ISO, transformation and governance consulting to strengthen IT operating models and service performance.',
   },
@@ -27,7 +27,7 @@ export default function ConsultingAdvisoryPage() {
         <Link className="breadcrumb" href="/">
           ← Home
         </Link>
-        <span className="eyebrow">ADViora Consulting · 01</span>
+        <span className="eyebrow">Adviora Consulting · 01</span>
         <h1>Consulting &amp; Advisory</h1>
         <p>
           We partner with enterprises, mid-sized organisations and public institutions to evaluate maturity, design modern IT operating models, optimise ITSM processes and embed international standards.

@@ -15,13 +15,13 @@ import { GallerySection } from '@/components/GallerySection';
 import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 
 export const metadata: Metadata = {
-  title: 'ADViora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
+  title: 'Adviora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
   description:
-    'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+    'Adviora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
   openGraph: {
-    title: 'ADViora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
+    title: 'Adviora Consulting — Transforming Businesses. Empowering People. Enabling Technology.',
     description:
-      'ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
+      'Adviora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.',
     url: 'https://www.advioraconsulting.com/',
   },
 };
@@ -32,7 +32,7 @@ export default function HomePage() {
       {/* 1. Hero Section */}
       <section className="consulting-hero wrap" id="hero">
         <div className="hero-content">
-          <span className="eyebrow">ADViora Consulting · ADViora Digital</span>
+          <span className="eyebrow">Adviora Consulting · Adviora Digital</span>
           <h1 className="hero-headline">
             Transforming Businesses.
             <br />
@@ -41,7 +41,7 @@ export default function HomePage() {
             Enabling Technology.
           </h1>
           <p className="hero-lead">
-            ADViora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.
+            Adviora helps organisations improve performance, modernise technology, optimise IT operations and build future-ready capabilities through consulting, technology solutions and professional training.
           </p>
 
           <div className="hero-themes" aria-label="Core operational themes">
@@ -94,11 +94,11 @@ export default function HomePage() {
             <strong>Advancing People, Organisations and Performance.</strong>
             <span>Consulting · Technology Solutions · Professional Academy · Enterprise Capability</span>
           </div>
-          <Link href="/digital">ADViora Digital Overview ↗</Link>
+          <Link href="/digital">Adviora Digital Overview ↗</Link>
         </div>
       </div>
 
-      {/* 3. About ADViora */}
+      {/* 3. About Adviora */}
       <AboutSection />
 
       {/* 4. Four Business Verticals */}
@@ -107,7 +107,7 @@ export default function HomePage() {
       {/* 5. Our Approach: Assess -> Design -> Implement -> Optimise */}
       <ApproachSection />
 
-      {/* 6. Why Choose ADViora (6 selling points) */}
+      {/* 6. Why Choose Adviora (6 selling points) */}
       <WhyChooseUs />
 
       {/* 7. Professional Training Catalogue Preview & Delivery Levels */}

@@ -49,10 +49,10 @@ export function Header() {
   return (
     <header>
       <div className="wrap header-inner">
-        <Link href="/" className="brand-link" aria-label="ADViora Consulting home" onClick={closeMenu}>
+        <Link href="/" className="brand-link" aria-label="Adviora Consulting home" onClick={closeMenu}>
           <Image
             src="/images/adviora-logo.webp"
-            alt="ADViora Consulting"
+            alt="Adviora Consulting"
             width={802}
             height={185}
             priority

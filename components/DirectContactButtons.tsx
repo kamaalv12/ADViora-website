@@ -10,14 +10,14 @@ export function DirectContactButtons() {
   return (
     <div className="direct-contact">
       <div className="direct-buttons-row">
-        <a href={ADVIORA_CONTACT.phoneHref} className="button phone-button" aria-label={`Call ADViora at ${ADVIORA_CONTACT.phone}`}>
+        <a href={ADVIORA_CONTACT.phoneHref} className="button phone-button" aria-label={`Call Adviora at ${ADVIORA_CONTACT.phone}`}>
           Call {ADVIORA_CONTACT.phone} ↗
         </a>
         <button
           type="button"
           className="button whatsapp"
           onClick={(e) => openChannelModal('whatsapp', e.currentTarget)}
-          aria-label="Chat with ADViora on WhatsApp"
+          aria-label="Chat with Adviora on WhatsApp"
         >
           Chat on WhatsApp ↗
         </button>
@@ -25,9 +25,9 @@ export function DirectContactButtons() {
           type="button"
           className="button email-button"
           onClick={(e) => openChannelModal('email', e.currentTarget)}
-          aria-label="Email ADViora Consulting"
+          aria-label="Email Adviora Consulting"
         >
-          Email ADViora ↗
+          Email Adviora ↗
         </button>
       </div>
       <div className="direct-contact-meta">

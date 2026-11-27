@@ -42,7 +42,6 @@ export function VerticalsGrid() {
               <ul className="vertical-capabilities-list">
                 {vertical.services.slice(0, 4).map((item, idx) => (
                   <li key={idx}>
-                    <span className="bullet-check" aria-hidden="true">✓</span>
                     <span>{item}</span>
                   </li>
                 ))}

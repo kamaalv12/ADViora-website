@@ -5,14 +5,14 @@ export function AboutSection() {
     <section className="section wrap about-section" id="about">
       <div className="about-grid">
         <div className="about-main-col">
-          <span className="eyebrow">About ADViora</span>
+          <span className="eyebrow">About Adviora</span>
           <h2>
             Translating complex challenges into measurable outcomes.
           </h2>
 
           <div className="about-text-content">
             <p>
-              ADViora is a technology consulting, digital transformation and professional learning organisation focused on helping businesses improve performance, strengthen operational capabilities and prepare for the future.
+              Adviora is a technology consulting, digital transformation and professional learning organisation focused on helping businesses improve performance, strengthen operational capabilities and prepare for the future.
             </p>
             <p>
               We bring together industry experience, proven frameworks, modern technology and practical learning approaches to help organisations translate business challenges into measurable outcomes.
@@ -52,7 +52,7 @@ export function AboutSection() {
             <span className="brand-box-tag">Brand Philosophy</span>
             <h3>Advance · Vision · Aura</h3>
             <p>
-              ADViora is conceptually inspired by Advance, Vision and Aura: driving purposeful progress, strategic clarity and enduring excellence across organizations and teams.
+              Adviora is conceptually inspired by Advance, Vision and Aura: driving purposeful progress, strategic clarity and enduring excellence across organizations and teams.
             </p>
           </div>
         </div>

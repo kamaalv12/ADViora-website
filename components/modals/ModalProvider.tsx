@@ -122,13 +122,13 @@ export function ModalProvider({ children }: { children: ReactNode }) {
         setChannelModal({
           channel: 'whatsapp',
           title: 'Chat on WhatsApp',
-          description: `Connect directly with ADViora on WhatsApp (${ADVIORA_CONTACT.whatsappDisplay}). Direct message: "${ADVIORA_CONTACT.defaultWhatsAppMessage}"`,
+          description: `Connect directly with Adviora on WhatsApp (${ADVIORA_CONTACT.whatsappDisplay}). Direct message: "${ADVIORA_CONTACT.defaultWhatsAppMessage}"`,
         });
       } else {
         setChannelModal({
           channel: 'email',
-          title: 'Email ADViora',
-          description: `Send your enquiry to ADViora at ${ADVIORA_CONTACT.email}. Direct email opens in your default mail application.`,
+          title: 'Email Adviora',
+          description: `Send your enquiry to Adviora at ${ADVIORA_CONTACT.email}. Direct email opens in your default mail application.`,
         });
       }
     },

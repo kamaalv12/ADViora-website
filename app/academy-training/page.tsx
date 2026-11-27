@@ -11,11 +11,11 @@ import { EnquiryTrigger } from '@/components/EnquiryTrigger';
 const vertical = BUSINESS_VERTICALS.find((v) => v.id === 'academy-training')!;
 
 export const metadata: Metadata = {
-  title: 'Professional Training Catalogue — Professional Academy & Training — ADViora Consulting',
+  title: 'Professional Training Catalogue — Professional Academy & Training — Adviora Consulting',
   description:
     'Comprehensive professional training in ITIL, ITSM, ServiceNow, ISO standards, Artificial Intelligence, Agile, DevOps, SRE and modern IT management.',
   openGraph: {
-    title: 'Professional Training Catalogue — Professional Academy & Training — ADViora Consulting',
+    title: 'Professional Training Catalogue — Professional Academy & Training — Adviora Consulting',
     description:
       'Comprehensive professional training in ITIL, ITSM, ServiceNow, ISO standards, Artificial Intelligence, Agile, DevOps, SRE and modern IT management.',
   },
@@ -28,7 +28,7 @@ export default function AcademyTrainingPage() {
         <Link className="breadcrumb" href="/">
           ← Home
         </Link>
-        <span className="eyebrow">ADViora Consulting · 03</span>
+        <span className="eyebrow">Adviora Consulting · 03</span>
         <h1>Professional Training Catalogue</h1>
         <p>
           Practical, industry-relevant training designed to empower IT professionals, transformation teams and enterprise leaders with modern skills across service management, cloud, AI, governance and operating standards.
